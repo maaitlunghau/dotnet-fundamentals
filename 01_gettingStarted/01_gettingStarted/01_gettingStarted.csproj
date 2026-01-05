@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>_01_demo</RootNamespace>
+    <RootNamespace>_01_gettingStarted</RootNamespace>
   </PropertyGroup>
 
 </Project>
