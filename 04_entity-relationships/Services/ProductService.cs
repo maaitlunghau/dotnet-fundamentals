@@ -1,9 +1,10 @@
 using _04_entity_relationships.Models;
+using _04_entity_relationships.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace _04_entity_relationships.Services;
 
-public class ProductService
+public class ProductService : IProductRepository
 {
     private readonly DataContext _dbContext;
     public ProductService(DataContext dbContext)

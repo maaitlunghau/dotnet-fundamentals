@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Product>
+
+<div class="container mt-3">
+    <a asp-action="Create" class="btn btn-primary">
+        Create a new Product
+    </a>
+    <h2>Product List</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info mt-3">
+            No product found.
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

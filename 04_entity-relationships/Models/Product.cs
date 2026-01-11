@@ -20,8 +20,7 @@ public class Product
     [Required]
     public int Quantity { get; set; }
 
-    [Required]
-    public int CateId { get; set; }
+    public int? CateId { get; set; }
 
     // relationship
     public Category? Category { get; set; }

@@ -12,6 +12,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
 builder.Services.AddScoped<ICategoryRepository, CategoryService>();
+builder.Services.AddScoped<IProductRepository, ProductService>();
 
 var app = builder.Build();
 
@@ -34,6 +35,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();
