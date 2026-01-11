@@ -1,0 +1,44 @@
+﻿@model Employee
+
+<form asp-action="Create" method="post">
+    @* Name Input *@
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Name:
+        </label>
+        <input type="text" class="form-control" placeholder="Enter fullname" asp-for="Name">
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    @* Email Input *@
+    <div class=" mb-3 mt-3">
+        <label for="email" class="form-label">
+            Email:
+        </label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" asp-for="Email">
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    @* Age Input *@
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Age:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter age" asp-for="Age">
+        <span asp-validation-for="Age"></span>
+    </div>
+
+    @* DOB Input *@
+    <div class="mb-3">
+        <label for="dob" class="form-label">
+            DOB:
+        </label>
+        <input type="date" class="form-control" asp-for="DOB">
+        <span asp-validation-for="DOB"></span>
+    </div>
+
+    @* Submit Button *@
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
