@@ -29,12 +29,12 @@
     </div>
 
     @* Category ID Select *@
-    @* <div class="mb-3">
+    <div class="mb-3">
         <label for="Category" class="form-label">
             Category:
         </label>
-        <select asp-for="CateId" asp-items="@ViewBag.cates" class="form-select"></select>
-    </div> *@
+        <select asp-for="CateId" asp-items="@ViewBag.categoriesData" class="form-select"></select>
+    </div>
 
     @* Submit Button *@
     <button type="submit" class="btn btn-primary">

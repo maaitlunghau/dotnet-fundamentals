@@ -14,7 +14,9 @@ public class ProductService : IProductRepository
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
     {
-        var products = await _dbContext.Products.ToListAsync();
+        var products = await _dbContext.Products
+                                .Include(p => p.Category)
+                                .ToListAsync();
         return products;
     }
 
