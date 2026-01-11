@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("02_layered-architecture")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b82007218b3913322e9b4fe46019b084ce0826b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+896850e2271dbf7a2e5f97eefe385289caf89512")]
 [assembly: System.Reflection.AssemblyProductAttribute("02_layered-architecture")]
 [assembly: System.Reflection.AssemblyTitleAttribute("02_layered-architecture")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
