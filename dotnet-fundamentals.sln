@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_onion-architecture", "05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_getting-started", "01_getting-started\01_getting-started.csproj", "{C19F966C-1C59-432C-A77C-D05F10B7CB0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_repository-pattern", "02_layered-architecture\02_repository-pattern.csproj", "{F44F39F0-919C-4F66-B923-E5DFD6108810}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{C19F966C-1C59-432C-A77C-D05F10B7CB0B}.Release|x64.Build.0 = Release|Any CPU
 		{C19F966C-1C59-432C-A77C-D05F10B7CB0B}.Release|x86.ActiveCfg = Release|Any CPU
 		{C19F966C-1C59-432C-A77C-D05F10B7CB0B}.Release|x86.Build.0 = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|x64.Build.0 = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Debug|x86.Build.0 = Debug|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|x64.ActiveCfg = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|x64.Build.0 = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|x86.ActiveCfg = Release|Any CPU
+		{F44F39F0-919C-4F66-B923-E5DFD6108810}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
