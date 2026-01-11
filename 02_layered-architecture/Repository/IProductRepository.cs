@@ -16,9 +16,9 @@ public interface IProductRepository
 
     // method bất đồng bộ
     // khi hoàn thành chỉ trả về 1 Product
-    Task<Product> GetByIdAsync(int id);
+    Task<Product?> GetProByIdAsync(int? id);
 
-    Task AddAsync(Product product);
-    Task EditAsync(Product product);
-    Task DeleteAsync(int id);
+    Task AddProAsync(Product product);
+    Task EditProAsync(Product product);
+    Task DeleteProAsync(int id);
 }
