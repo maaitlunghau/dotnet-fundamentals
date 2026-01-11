@@ -37,10 +37,15 @@ namespace _01_getting_started.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Employee employee)
         {
-            await _dbContext.Employees.AddAsync(employee);
-            await _dbContext.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                await _dbContext.Employees.AddAsync(employee);
+                await _dbContext.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(employee);
         }
     }
 }
