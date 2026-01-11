@@ -1,7 +1,6 @@
 using _02_layered_architecture.Models;
 using _02_layered_architecture.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace _02_layered_architecture.Controllers
 {
@@ -51,6 +50,7 @@ namespace _02_layered_architecture.Controllers
             return View(product);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Edit(Product product)
         {
@@ -63,7 +63,7 @@ namespace _02_layered_architecture.Controllers
             return View(product);
         }
 
-
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             await _productRepository.DeleteProAsync(id);

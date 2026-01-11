@@ -33,6 +33,7 @@ public class ProductService : IProductRepository
     public async Task EditProAsync(Product product)
     {
         _dbContext.Products.Update(product);
+        await _dbContext.SaveChangesAsync();
     }
 
     public async Task DeleteProAsync(int id)

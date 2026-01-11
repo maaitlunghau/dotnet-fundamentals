@@ -1,4 +1,6 @@
 using _02_layered_architecture;
+using _02_layered_architecture.Repository;
+using _02_layered_architecture.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,12 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+// AddScoped = 1 request -> 1 instance (Repo, Service, DbContext)
+builder.Services.AddScoped<IProductRepository, ProductService>();
+
+// mở rộng thêm:
+//      AddTransient = 1 inject -> 1 instance (stateless)
+//      AddSingleton = 1 app -> 1 instance (cache, config)
 
 var app = builder.Build();
 
