@@ -1,4 +1,6 @@
 using _04_entity_relationships.Models;
+using _04_entity_relationships.Repository;
+using _04_entity_relationships.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<ICategoryRepository, CategoryService>();
 
 var app = builder.Build();
 

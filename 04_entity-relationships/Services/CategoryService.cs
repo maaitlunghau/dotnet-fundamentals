@@ -41,7 +41,7 @@ public class CategoryService : ICategoryRepository
         var category = await GetCategoryById(id);
         if (category != null)
         {
-            _dbContext.Remove(category);
+            _dbContext.Categories.Remove(category);
             await _dbContext.SaveChangesAsync();
         }
     }

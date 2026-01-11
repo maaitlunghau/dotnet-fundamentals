@@ -19,6 +19,7 @@
    <ItemGroup>
      <Folder Include="Repository/" />
      <Folder Include="Services/" />
+     <Folder Include="Views/Category/" />
    </ItemGroup>
 
 </Project>
