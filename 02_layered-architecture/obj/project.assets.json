@@ -3476,9 +3476,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_layered-architecture.csproj",
-      "projectName": "02_layered-architecture",
-      "projectPath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_layered-architecture.csproj",
+      "projectUniqueName": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_repository-pattern.csproj",
+      "projectName": "02_repository-pattern",
+      "projectPath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_repository-pattern.csproj",
       "packagesPath": "/Users/maaitlunghau/.nuget/packages/",
       "outputPath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/obj/",
       "projectStyle": "PackageReference",

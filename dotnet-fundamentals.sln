@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_onion-architecture", "05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_getting-started", "01_getting-started\01_getting-started.csproj", "{C19F966C-1C59-432C-A77C-D05F10B7CB0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_layered-architecture", "02_layered-architecture\02_layered-architecture.csproj", "{F44F39F0-919C-4F66-B923-E5DFD6108810}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_repository-pattern", "02_layered-architecture\02_repository-pattern.csproj", "{F44F39F0-919C-4F66-B923-E5DFD6108810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

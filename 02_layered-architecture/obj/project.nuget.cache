@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gq+Qy+KCyoI=",
+  "dgSpecHash": "ETMUPRvWcIo=",
   "success": true,
-  "projectFilePath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_layered-architecture.csproj",
+  "projectFilePath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/02_layered-architecture/02_repository-pattern.csproj",
   "expectedPackageFiles": [
     "/Users/maaitlunghau/.nuget/packages/azure.core/1.47.1/azure.core.1.47.1.nupkg.sha512",
     "/Users/maaitlunghau/.nuget/packages/azure.identity/1.14.2/azure.identity.1.14.2.nupkg.sha512",
