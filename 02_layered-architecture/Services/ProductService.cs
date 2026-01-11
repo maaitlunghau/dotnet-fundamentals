@@ -1,8 +1,6 @@
 using _02_layered_architecture.Models;
 using _02_layered_architecture.Repository;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace _02_layered_architecture.Services;
 
@@ -35,7 +33,6 @@ public class ProductService : IProductRepository
     public async Task EditProAsync(Product product)
     {
         _dbContext.Products.Update(product);
-        await _dbContext.SaveChangesAsync();
     }
 
     public async Task DeleteProAsync(int id)
