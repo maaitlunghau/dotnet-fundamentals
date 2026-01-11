@@ -3,6 +3,7 @@ using _04_entity_relationships.Models;
 using _04_entity_relationships.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.IdentityModel.Tokens;
 
 namespace _04_entity_relationships.Controllers
 {
@@ -18,9 +19,14 @@ namespace _04_entity_relationships.Controllers
             _categoryRepositor = categoryRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? nameSearch)
         {
             var products = await _productRepository.GetAllProductsAsync();
+            if (!string.IsNullOrEmpty(nameSearch))
+            {
+                products = products.Where(p => !string.IsNullOrEmpty(p.Name) && p.Name.ToLower().Contains(nameSearch.ToLower())).ToList();
+            }
+
             return View(products);
         }
 
