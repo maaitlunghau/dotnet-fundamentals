@@ -1,7 +1,18 @@
+using _04_entity_relationships.Models;
+using _04_entity_relationships.Repository;
+using _04_entity_relationships.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
+});
+builder.Services.AddScoped<ICategoryRepository, CategoryService>();
+builder.Services.AddScoped<IProductRepository, ProductService>();
 
 var app = builder.Build();
 
@@ -24,6 +35,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

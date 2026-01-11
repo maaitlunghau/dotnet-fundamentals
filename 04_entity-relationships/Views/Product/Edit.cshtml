@@ -1,0 +1,43 @@
+﻿@model Product
+
+<form asp-action="Edit" method="post">
+    @* Name Input *@
+    <div class="mb-3 mt-3">
+        <label for="name" class="form-label">
+            Name:
+        </label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+    @* Price Input *@
+    <div class="mb-3">
+        <label for="price" class="form-label">
+            Price:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter price" asp-for="Price">
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+
+    @* Quantity Input *@
+    <div class="mb-3">
+        <label for="price" class="form-label">
+            Quantity:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter quantity" asp-for="Quantity">
+        <span class="text-danger" asp-validation-for="Quantity"></span>
+    </div>
+
+    @* Category ID Select *@
+    <div class="mb-3">
+        <label for="Category" class="form-label">
+            Category:
+        </label>
+        <select asp-for="CateId" asp-items="@ViewBag.categoriesData" class="form-select"></select>
+    </div>
+
+    @* Submit Button *@
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
