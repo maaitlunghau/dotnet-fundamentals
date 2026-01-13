@@ -16,4 +16,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository/" />
+    <Folder Include="Services/" />
+    <Folder Include="Views/Product/" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
 using _05_file_handling.Models;
+using _05_file_handling.Repository;
+using _05_file_handling.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<IProductRepository, ProductService>();
 
 var app = builder.Build();
 

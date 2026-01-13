@@ -16,7 +16,7 @@ public class Product
     [Required(ErrorMessage = "Giá sản phẩm không được bỏ trống!")]
     [Column(TypeName = "decimal(10,2)")]
     [Range(10, 1000, ErrorMessage = "Giá sản phẩm phải từ 10 đến 1000 đô la Mỹ ($)")]
-    public decimal Price { get; set; }
+    public decimal? Price { get; set; }
 
     [DataType(DataType.MultilineText)]
     [StringLength(maximumLength: 500, ErrorMessage = "Mô tả sản phẩm tối đa chỉ được 500 ký tự!")]
