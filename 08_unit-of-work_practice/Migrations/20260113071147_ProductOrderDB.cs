@@ -28,7 +28,7 @@ namespace _08_unit_of_work_practice.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Oreders",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -40,9 +40,9 @@ namespace _08_unit_of_work_practice.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Oreders", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Oreders_Products_ProductId",
+                        name: "FK_Orders_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -50,8 +50,8 @@ namespace _08_unit_of_work_practice.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Oreders_ProductId",
-                table: "Oreders",
+                name: "IX_Orders_ProductId",
+                table: "Orders",
                 column: "ProductId");
         }
 
@@ -59,7 +59,7 @@ namespace _08_unit_of_work_practice.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Oreders");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");

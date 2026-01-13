@@ -74,7 +74,7 @@ namespace _08_unit_of_work_practice.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Oreders");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("_08_unit_of_work_practice.Order", b =>

@@ -12,7 +12,7 @@ using _08_unit_of_work_practice.Models;
 namespace _08_unit_of_work_practice.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260113062450_ProductOrderDB")]
+    [Migration("20260113071147_ProductOrderDB")]
     partial class ProductOrderDB
     {
         /// <inheritdoc />
@@ -77,7 +77,7 @@ namespace _08_unit_of_work_practice.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Oreders");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("_08_unit_of_work_practice.Order", b =>
