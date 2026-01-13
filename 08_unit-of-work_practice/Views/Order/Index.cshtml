@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Order>
+
+<div class="container">
+    <h1>
+        This is Order Page
+    </h1>
+    <a class="btn btn-primary" asp-action="Create">
+        Create a new Order
+    </a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Product?.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.TotalAmount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
