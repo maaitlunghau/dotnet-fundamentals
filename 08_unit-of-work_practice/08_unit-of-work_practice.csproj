@@ -15,5 +15,11 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories/" />
+    <Folder Include="Services/" />
+    <Folder Include="Views/Product/" />
+  </ItemGroup>
   
 </Project>

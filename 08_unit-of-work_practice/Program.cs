@@ -1,4 +1,6 @@
 using _08_unit_of_work_practice.Models;
+using _08_unit_of_work_practice.Repositories;
+using _08_unit_of_work_practice.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<IProductRepository, ProductService>();
 
 var app = builder.Build();
 
