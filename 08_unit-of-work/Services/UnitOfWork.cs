@@ -6,10 +6,10 @@ namespace _08_unit_of_work.Services;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private IDbContextTransaction _transaction;
+    private IDbContextTransaction? _transaction;
     private readonly DataContext _dbContext;
-    private IProductRepository _productRepository;
-    private IOrderRepository _orderRepository;
+    private IProductRepository? _productRepository;
+    private IOrderRepository? _orderRepository;
     public UnitOfWork(DataContext dbContext)
     {
         _dbContext = dbContext;

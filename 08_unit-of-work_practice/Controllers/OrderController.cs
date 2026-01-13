@@ -6,27 +6,24 @@ namespace _08_unit_of_work_practice.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly IOrderRepository _orderRepository;
-        private readonly IProductRepository _productRepository;
-        public OrderController(IOrderRepository orderRepository, IProductRepository productRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public OrderController(IUnitOfWork unitOfWork)
         {
-            _orderRepository = orderRepository;
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var orders = await _orderRepository.GetAllOrdersAsync();
+            var orders = await _unitOfWork.OrderRepository.GetAllOrdersAsync();
             return View(orders);
         }
 
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var products = await _productRepository.GetAllProductAsync();
-            ViewBag.Products = new SelectList(products, "Id", "Name"); // value, field-to-display
+            var products = await _unitOfWork.ProductRepository.GetAllProductAsync();
+            ViewBag.Products = new SelectList(products, "Id", "Name");
 
             return View();
         }
@@ -36,7 +33,7 @@ namespace _08_unit_of_work_practice.Controllers
         {
             if (ModelState.IsValid)
             {
-                var product = await _productRepository.GetProductByIdAsync(order.ProductId);
+                var product = await _unitOfWork.ProductRepository.GetProductByIdAsync(order.ProductId);
 
                 try
                 {
@@ -59,8 +56,16 @@ namespace _08_unit_of_work_practice.Controllers
                     order.TotalAmount = (double)(product.Price * order.Quantity);
                     order.OrderDate = DateTime.Now;
 
-                    await _orderRepository.AddOrderAsync(order);
-                    return RedirectToAction(nameof(Index));
+                    // start transaction (should start BEFORE save changes)
+                    await _unitOfWork.BeginTransactionAsync();
+
+                    await _unitOfWork.OrderRepository.AddOrderAsync(order);
+                    await _unitOfWork.ProductRepository.UpdateProductAsync(product);
+
+                    // complete transaction
+                    bool result = await _unitOfWork.CompleteAsync();
+                    if (result) return RedirectToAction(nameof(Index));
+
                 }
                 catch (InvalidOperationException ioe)
                 {
@@ -73,37 +78,6 @@ namespace _08_unit_of_work_practice.Controllers
             }
 
             return View(order);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
-        {
-            var order = await _orderRepository.GetOrderByIdAsync(id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return View(order);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                await _orderRepository.UpdateOrderAsync(order);
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(order);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _orderRepository.DeleteOrderAsync(id);
-            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -12,7 +12,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
 builder.Services.AddScoped<IProductRepository, ProductService>();
-builder.Services.AddScoped<IOrderRepository, OrderService>();
+// builder.Services.AddScoped<IOrderRepository, OrderService>(); 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
