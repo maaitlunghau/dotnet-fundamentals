@@ -2,7 +2,7 @@ using OA.Domain.Model;
 
 namespace OA.Domain.Repository;
 
-public interface IProductRepository
+public interface IEmployeeRepository
 {
     public Task<IEnumerable<Employee>> GetAllEmployeesAsync();
     public Task<Employee?> GetEmployeeByIdAsync(Guid? id);
