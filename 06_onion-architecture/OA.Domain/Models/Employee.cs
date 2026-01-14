@@ -16,7 +16,7 @@ public class Product
     [Required(ErrorMessage = "Lương nhân viên không được bỏ trống!")]
     [Column(TypeName = "decimal(10,2)")]
     [Range(10, 1000, ErrorMessage = "Lương nhân viên phải tầm 10 - 1000 đô!")]
-    public decimal Salary { get; set; }
+    public decimal? Salary { get; set; }
 
     [Required(ErrorMessage = "Tuổi nhân viên không được bỏ trống!")]
     [Range(18, 65, ErrorMessage = "Tuổi chỉ từ 18 đến 50 tuổi!")]
