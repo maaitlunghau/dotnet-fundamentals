@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("09_dto-automapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c7c18aedbe1f99de420c64507d91e7df65d9306")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3619119c4699abd0360aa93e6c9959e1ce362112")]
 [assembly: System.Reflection.AssemblyProductAttribute("09_dto-automapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("09_dto-automapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
