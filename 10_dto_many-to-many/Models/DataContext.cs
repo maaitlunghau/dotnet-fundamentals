@@ -3,9 +3,16 @@ namespace _10_dto_many_to_many.Models;
 
 public class DataContext : DbContext
 {
-    public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+    /// <summary>
+/// Initializes a new instance of <see cref="DataContext"/> with the specified context options.
+/// </summary>
+/// <param name="options">Options that configure the database context.</param>
+public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-    // cấu hình relationship
+    /// <summary>
+    /// Configures the EF Core model for the context, including the composite primary key and relationships for the StudentCourse join entity.
+    /// </summary>
+    /// <param name="modelBuilder">The builder used to configure entity types and relationships for the context.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
