@@ -91,10 +91,12 @@ namespace _05_file_handling.Controllers
                         System.IO.File.Delete(imagePath);
                     }
                 }
+
+                await _productRepository.DeleteProductAsync(id);
+                return RedirectToAction(nameof(Index));
             }
 
-            await _productRepository.DeleteProductAsync(id);
-            return RedirectToAction(nameof(Index));
+            return NotFound();
         }
     }
 }

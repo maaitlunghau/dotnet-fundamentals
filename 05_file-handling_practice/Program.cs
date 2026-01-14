@@ -1,7 +1,17 @@
+using _05_file_handling_practice.Models;
+using _05_file_handling_practice.Repository;
+using _05_file_handling_practice.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
+});
+builder.Services.AddScoped<IProductRepository, ProductService>();
 
 var app = builder.Build();
 

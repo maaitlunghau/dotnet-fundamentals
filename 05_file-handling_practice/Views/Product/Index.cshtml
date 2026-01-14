@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Product>
+
+<div class="container">
+    @* Header Page *@
+    <h1>
+        Trang sản phẩm
+    </h1>
+    <a asp-action="Create">
+        Tạo mới sản phẩm
+    </a>
+    <p>
+        Chọn sản phẩm bất kì để xem thông tin chi tiết
+    </p>
+
+    @* Table *@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá thành</th>
+                <th>Mô tả</th>
+                <th>Hình sản phẩm</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>$@item.Price</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <img src="@item.ImageUrl" width="150" alt="hình-sản-phẩm">
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">
+                            Edit
+                        </a>
+                        <form asp-action="Delete" asp-route-id="@item.Id">
+                            <button class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
