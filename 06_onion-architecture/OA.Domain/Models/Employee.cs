@@ -19,6 +19,6 @@ public class Product
     public decimal Salary { get; set; }
 
     [Required(ErrorMessage = "Tuổi nhân viên không được bỏ trống!")]
-    [Range(18, 50, ErrorMessage = "Tuổi chỉ từ 18 đến 50 tuổi!")]
+    [Range(18, 65, ErrorMessage = "Tuổi chỉ từ 18 đến 50 tuổi!")]
     public int Age { get; set; }
 }
