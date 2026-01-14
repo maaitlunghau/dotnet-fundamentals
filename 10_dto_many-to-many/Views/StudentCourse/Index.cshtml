@@ -1,0 +1,45 @@
+﻿@using _10_dto_many_to_many.DTO
+@model IEnumerable<StudentIndexDTO>
+
+<div class="container mt-3">
+    <h2>Danh sách sinh viên</h2>
+    <a asp-action="Create">
+        Thêm mới sinh viên
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên nhân viên</th>
+                <th>Khoá học đã Đăng Ký</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#@item.StudentId</td>
+                    <td>@item.Name</td>
+                    <td>
+                        @if (item.Courses != null && item.Courses.Count > 0)
+                        {
+                            <ul>
+                                @foreach (var course in item.Courses)
+                                {
+                                    <li>
+                                        <span class="badge bg-success"> @course</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Chưa đăng ký khoá học nào</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

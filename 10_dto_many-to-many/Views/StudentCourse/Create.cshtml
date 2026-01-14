@@ -1,0 +1,33 @@
+﻿@using _10_dto_many_to_many.DTO
+@model StudentAssignCourseDTO
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Tên sinh viên:
+        </label>
+        <select class="form-control" asp-for="SelectedStudentId"
+            asp-items="@(new SelectList(Model.Students, "StudentId", "Name"))">
+            <option value="">Chọn sinh viên</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Courses:
+        </label>
+        @foreach (var course in Model.Courses!)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="SelectedCourseId" value="@course.CourseId" />
+                <label class="form-check-label">
+                    @course.Title
+                </label>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>

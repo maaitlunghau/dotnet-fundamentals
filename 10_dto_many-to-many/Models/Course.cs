@@ -15,5 +15,5 @@ public class Course
     public double? Price { get; set; }
 
     // relationship
-    public ICollection<StudentCourse>? StudentCourses { get; set; }
+    public ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 }

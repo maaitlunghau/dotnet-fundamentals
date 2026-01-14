@@ -14,5 +14,5 @@ public class Student
     public int? Age { get; set; }
 
     // relationship
-    public ICollection<StudentCourse>? StudentCourses { get; set; }
+    public ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>(); // gán new List để tránh null
 }
