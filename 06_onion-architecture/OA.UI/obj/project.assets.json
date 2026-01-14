@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "OA.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/OA.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OA.Domain.dll": {}
+        }
+      },
+      "OA.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "OA.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OA.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OA.Service.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "OA.Domain/1.0.0": {
+      "type": "project",
+      "path": "../OA.Domain/OA.Domain.csproj",
+      "msbuildProject": "../OA.Domain/OA.Domain.csproj"
+    },
+    "OA.Service/1.0.0": {
+      "type": "project",
+      "path": "../OA.Service/OA.Service.csproj",
+      "msbuildProject": "../OA.Service/OA.Service.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "OA.Service >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/maaitlunghau/.nuget/packages/": {}
@@ -31,7 +68,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/OA.Service.csproj": {
+              "projectPath": "/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/OA.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
