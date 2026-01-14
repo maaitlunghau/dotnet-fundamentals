@@ -1,0 +1,35 @@
+﻿@model OA.Domain.Model.Employee
+
+<form asp-action="Edit" method="post">
+    @* Name Input *@
+    <div class="mb-3 mt-3">
+        <label for="name" class="form-label">
+            Name:
+        </label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+    @* Age Input *@
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Age:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter age" asp-for="Age">
+        <span class="text-danger" asp-validation-for="Age"></span>
+    </div>
+
+    @* Salary Input *@
+    <div class="mb-3">
+        <label for="salary" class="form-label">
+            Salary:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter Salary" asp-for="Salary" />
+        <span class="text-danger" asp-validation-for="Salary"></span>
+    </div>
+
+    @* Submit Button *@
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>

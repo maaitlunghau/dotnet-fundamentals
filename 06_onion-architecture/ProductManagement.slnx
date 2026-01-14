@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OA.Domain/OA.Domain.csproj" />
+  <Project Path="OA.Repository/OA.Repository.csproj" />
+  <Project Path="OA.Service/OA.Service.csproj" />
+  <Project Path="OA.UI/OA.UI.csproj" />
+</Solution>
