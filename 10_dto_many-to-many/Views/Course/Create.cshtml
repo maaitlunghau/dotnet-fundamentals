@@ -1,0 +1,23 @@
+﻿@model Course
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Tên khoá học:
+        </label>
+        <input type="text" class="form-control" placeholder="Nhập tên khoá học" asp-for="Title">
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Giá tiền:
+        </label>
+        <input type="number" class="form-control" placeholder="Nhập giá tiền khoá học" asp-for="Price">
+        <span asp-validation-for="Price"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
