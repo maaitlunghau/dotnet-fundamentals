@@ -40,7 +40,7 @@ namespace OA.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
             var existingEmployee = await _employeeService.GetById(id);
             if (existingEmployee == null) return NotFound();
@@ -65,7 +65,7 @@ namespace OA.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             await _employeeService.Delete(id);
             TempData["message"] = "Employee deleted successfully";

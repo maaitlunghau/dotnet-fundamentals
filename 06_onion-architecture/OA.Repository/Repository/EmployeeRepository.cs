@@ -18,7 +18,7 @@ public class EmployeeRepository : IEmployeeRepository
         return await _dbContext.Employees.ToListAsync();
     }
 
-    public async Task<Employee?> GetEmployeeByIdAsync(Guid? id)
+    public async Task<Employee?> GetEmployeeByIdAsync(Guid id)
     {
         return await _dbContext.Employees.FindAsync(id);
     }
@@ -35,7 +35,7 @@ public class EmployeeRepository : IEmployeeRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task DeleteEmployeeAsync(Guid? id)
+    public async Task DeleteEmployeeAsync(Guid id)
     {
         var emp = await GetEmployeeByIdAsync(id);
         if (emp != null)

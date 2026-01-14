@@ -1,13 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OA.Domain.Model;
 
 public class Employee
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     [Required(ErrorMessage = "Tên nhân viên không được bỏ trống!")]
     [StringLength(50, ErrorMessage = "Tên nhân viên không được vượt quá 50 ký tự!")]
@@ -19,5 +17,5 @@ public class Employee
 
     [Range(18, 65, ErrorMessage = "Nhân viên phải từ 18 đến 65 tuổi!")]
     [Required(ErrorMessage = "Tuổi nhân viên không được bỏ trống!")]
-    public int Age { get; set; }
+    public int? Age { get; set; }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OA.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a1084bf0fff534bb26beac30d7a2a0e519c6166")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be780a3310ccf6e311854af7174cbe1f63053be7")]
 [assembly: System.Reflection.AssemblyProductAttribute("OA.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OA.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

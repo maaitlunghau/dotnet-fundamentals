@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using OA.Domain.Repository;
 using OA.Repository.Data;
+using OA.Repository.Repository;
+using OA.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"))
 );
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<EmployeeService>();
 
 var app = builder.Build();
 
