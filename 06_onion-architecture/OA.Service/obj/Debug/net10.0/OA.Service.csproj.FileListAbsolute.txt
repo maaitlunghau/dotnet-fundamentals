@@ -1,0 +1,16 @@
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/bin/Debug/net10.0/OA.Service.deps.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/bin/Debug/net10.0/OA.Service.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/bin/Debug/net10.0/OA.Service.pdb
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/bin/Debug/net10.0/OA.Domain.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/bin/Debug/net10.0/OA.Domain.pdb
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.csproj.AssemblyReference.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.AssemblyInfoInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.AssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.csproj.CoreCompileInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.sourcelink.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.csproj.Up2Date
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/refint/OA.Service.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/OA.Service.pdb
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Service/obj/Debug/net10.0/ref/OA.Service.dll

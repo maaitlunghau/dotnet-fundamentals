@@ -1,0 +1,12 @@
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/bin/Debug/net10.0/OA.Domain.deps.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/bin/Debug/net10.0/OA.Domain.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/bin/Debug/net10.0/OA.Domain.pdb
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.AssemblyInfoInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.AssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.csproj.CoreCompileInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.sourcelink.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/refint/OA.Domain.dll
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/OA.Domain.pdb
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/06_onion-architecture/OA.Domain/obj/Debug/net10.0/ref/OA.Domain.dll
