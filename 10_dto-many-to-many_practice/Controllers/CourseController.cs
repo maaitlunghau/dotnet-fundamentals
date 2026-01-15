@@ -2,13 +2,16 @@ using _10_dto_many_to_many_practice.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace _10_dto_many_to_many_practice.Controllers
 {
-    public class StudentController : Controller
+    public class CourseController : Controller
     {
         private readonly DataContext _dbContext;
-        public StudentController(DataContext dbContext)
+        public CourseController(DataContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -16,13 +19,15 @@ namespace _10_dto_many_to_many_practice.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string? search)
         {
-            var students = await _dbContext.Students.ToListAsync();
+            IQueryable<Course> query = _dbContext.Courses;
+
             if (!string.IsNullOrWhiteSpace(search))
             {
-                students = students.Where(stu => stu.Name!.ToLower().Contains(search.ToLower())).ToList();
+                query = query.Where(c => c.Title!.ToLower().Contains(search.ToLower()));
             }
 
-            return View(students);
+            var courses = await query.ToListAsync();
+            return View(courses);
         }
 
         [HttpGet]
@@ -32,48 +37,49 @@ namespace _10_dto_many_to_many_practice.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Student student)
+        public async Task<IActionResult> Create(Course course)
         {
             if (ModelState.IsValid)
             {
-                await _dbContext.Students.AddAsync(student);
+                await _dbContext.Courses.AddAsync(course);
                 await _dbContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(student);
+            return View(course);
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
-            var student = await _dbContext.Students.FindAsync(id);
-            return View(student);
+            var course = await _dbContext.Courses.FindAsync(id);
+            return View(course);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Student student)
+        public async Task<IActionResult> Edit(Course course)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Students.Update(student);
+                _dbContext.Courses.Update(course);
                 await _dbContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(student);
+            return View(course);
         }
 
         [HttpPost]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var student = await _dbContext.Students.FindAsync(id);
-            if (student == null) return NotFound();
+            var course = await _dbContext.Courses.FindAsync(id);
+            if (course == null) return NotFound();
 
-            _dbContext.Students.Remove(student);
+            _dbContext.Courses.Remove(course);
             await _dbContext.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
     }
