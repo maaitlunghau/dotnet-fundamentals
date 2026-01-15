@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -8,7 +8,14 @@ namespace _10_dto_many_to_many.Migrations
     /// <inheritdoc />
     public partial class StudentCourseDB : Migration
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Creates the database schema for Students, Courses, and their many-to-many relationship via StudentCourses.
+        /// </summary>
+        /// <remarks>
+        /// - Creates the Courses table (Id: GUID primary key, Title: nvarchar(255) not null, Price: double not null).
+        /// - Creates the Students table (Id: GUID primary key, Name: nvarchar(50) not null, Age: int not null).
+        /// - Creates the StudentCourses join table with a composite primary key (StudentId, CourseId), foreign keys to Students(Id) and Courses(Id) with cascade delete, and an index on CourseId.
+        /// </remarks>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
