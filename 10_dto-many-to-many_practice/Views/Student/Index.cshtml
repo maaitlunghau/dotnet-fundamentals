@@ -1,0 +1,57 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model IEnumerable<Student>
+
+<div class="container mt-3">
+    <h2>Danh sách sinh viên</h2>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="Create" class="btn btn-primary">
+            Thêm mới sinh viên
+        </a>
+
+        <!-- Search bar -->
+        <form asp-action="Index" method="get" class="d-flex mb-4">
+            <input type="text" name="search" value="@Context.Request.Query["search"]" class="form-control me-2"
+                placeholder="Tìm theo tên sinh viên..." />
+            <button type="submit" class="btn btn-outline-success">
+                Search
+            </button>
+        </form>
+    </div>
+
+    @if (Model.IsNullOrEmpty())
+    {
+        <p>Không có sinh viên nào.</p>
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên sinh viên</th>
+                <th>Tuổi</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                            Edit
+                        </a>
+                        <form style="display:inline-block" method="post">
+                            <button class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

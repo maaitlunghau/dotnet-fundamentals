@@ -2,7 +2,6 @@ using _10_dto_many_to_many.DTO;
 using _10_dto_many_to_many.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Primitives;
 
 namespace _10_dto_many_to_many.Controllers
 {
@@ -56,6 +55,7 @@ namespace _10_dto_many_to_many.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(StudentAssignCourseDTO dto)
         {
+            // validate
             if (string.IsNullOrEmpty(dto.SelectedStudentId))
             {
                 ModelState.AddModelError("", "Please select a student.");
@@ -64,17 +64,20 @@ namespace _10_dto_many_to_many.Controllers
             {
                 ModelState.AddModelError("", "Vui lòng chọn ít nhất một khóa học.");
             }
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(dto);
             }
-            var studentCourses = dto.SelectedCourseId.Select(courseId => new StudentCourse
+
+            var studentCourses = dto.SelectedCourseId!.Select(courseId => new StudentCourse
             {
-                StudentId = Guid.Parse(dto.SelectedStudentId),
+                StudentId = Guid.Parse(dto.SelectedStudentId!),
                 CourseId = Guid.Parse(courseId)
             }).ToList();
+
             _dbContext.StudentCourses.AddRange(studentCourses);
             await _dbContext.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
     }
