@@ -2,9 +2,6 @@ using _10_dto_many_to_many_practice.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace _10_dto_many_to_many_practice.Controllers
 {

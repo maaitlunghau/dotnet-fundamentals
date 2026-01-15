@@ -1,0 +1,62 @@
+﻿@using Microsoft.IdentityModel.Tokens
+@model IEnumerable<StudentCourseIndexDTO>
+
+<div class="container mt-3">
+    <h2>Danh sách sinh viên theo khoá học</h2>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="Create" class="btn btn-primary mt-2">
+            Đăng ký khoá học cho sinh viên
+        </a>
+
+        <!-- Search bar -->
+        <form asp-action="Index" method="get" class="d-flex mb-4">
+            <input type="text" name="search" value="@Context.Request.Query["search"]" class="form-control me-2"
+                placeholder="Tìm theo tên sinh viên..." />
+            <button type="submit" class="btn btn-outline-primary">
+                Search
+            </button>
+        </form>
+    </div>
+
+    @if (Model.IsNullOrEmpty())
+    {
+        <p>Không có sinh viên nào.</p>
+    }
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên nhân viên</th>
+                <th>Khoá học đã Đăng Ký</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#@item.StudentId</td>
+                    <td>@item.StudentName</td>
+                    <td>
+                        @if (item.Courses != null && item.Courses.Count > 0)
+                        {
+                            <ul>
+                                @foreach (var course in item.Courses)
+                                {
+                                    <li>
+                                        <span class="badge bg-success">@course</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Chưa đăng ký khoá học nào</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

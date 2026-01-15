@@ -22,5 +22,5 @@ public class Student
     // dùng ICollection để:
     // -- giảm coupling
     // -- best practice (vì IEnumerable -> chỉ đọc, List -> phụ thuộc implementation)
-    public ICollection<StudentCourse>? StudentCourses { get; set; }
+    public ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 }
