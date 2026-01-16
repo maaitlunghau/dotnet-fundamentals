@@ -4,7 +4,7 @@ namespace _11_dto_automapper_authentication.DTOs;
 
 public class UserDTO
 {
-    // tạm thời dùng giống model Acount cho đơn giản vấn đề
+    // tạm thời dùng giống model Account cho đơn giản vấn đề
     // cài thêm automapper để code DTO automapper
 
     public int Id { get; set; }
