@@ -1,0 +1,50 @@
+﻿@using _11_dto_automapper_authentication.DTOs
+@model UserDTO
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="Name" class="form-label">
+            Email:
+        </label>
+        <input type="text" class="form-control" placeholder="Enter email" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Price" class="form-label">
+            Password:
+        </label>
+        <input type="password" class="form-control" placeholder="Enter password" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Age:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter age" asp-for="Tuoi">
+        <span asp-validation-for="Tuoi"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Role:</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" asp-for="Role" value="ADMIN" id="roleAdmin">
+            <label class="form-check-label" for="roleAdmin">Admin</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" checked type="radio" asp-for="Role" value="USER" id="roleUser">
+            <label class="form-check-label" for="roleUser">User</label>
+        </div>
+
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+
+    @* Submit Button *@
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
