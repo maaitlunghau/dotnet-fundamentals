@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("11_dto-automapper-authentication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdea0d9b81ec764fe5b99f6f96540b6ef5fd3461")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4996ced84589a9b07316b0a69a84203931e5f1fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("11_dto-automapper-authentication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("11_dto-automapper-authentication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

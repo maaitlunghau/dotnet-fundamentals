@@ -2,8 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _11_dto_automapper_authentication.Models;
 
-// DatebaseFirst: cũng cần DataContext thôi
-// nếu dùng ModelFirst -> tự sinh ra DataContext luôn
+// nếu kh dùng DataContext thì dùng DatebaseFirst 
+// (nhưng nó cũng cần DataContext thôi)
+// nếu dùng ModelFirst -> cũng tự sinh ra DataContext luôn
 
 public class DataContext : DbContext
 {

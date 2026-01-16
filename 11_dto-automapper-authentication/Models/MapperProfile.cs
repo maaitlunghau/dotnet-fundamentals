@@ -11,6 +11,9 @@ public class MapperProfile : Profile
         // dest (destination: đích đến): object đích (UserDTO)
         // opt (options): cấu hình cách map
         // src (source): object nguồn (Account)
+        //
+        // mục đích dùng ForMember: 
+        // map thủ công cho Model khi map 2 model có field khác nhau
         CreateMap<Account, UserDTO>()
             .ForMember(dest => dest.Tuoi, opt => opt.MapFrom(src => src.Age))
             .ReverseMap();

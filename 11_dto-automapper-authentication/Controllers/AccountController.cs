@@ -1,6 +1,5 @@
 using _11_dto_automapper_authentication.DTOs;
 using _11_dto_automapper_authentication.Models;
-using AspNetCoreGeneratedDocument;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -57,8 +56,9 @@ namespace _11_dto_automapper_authentication.Controllers
             }
 
             // map UserDTO sang Account lại, vì:
-            // -- vì lí thuyết: nếu AddSync(userDTO) là sai, vì DTO chỉ là object vận chuyển dữ liệu thôi chứ kh có thao tác với Database
-            // -- vì model Account khác với model UserDTO, dù cho model có khớp thì về lí thuyết đã sai rồi!
+            // -- về lí thuyết: nếu AddSync(userDTO) là sai, vì DTO chỉ là object vận chuyển dữ liệu thôi chứ kh có thao tác với Database
+            //
+            // -- model Account khác với model UserDTO, dù cho model có khớp thì về lí thuyết đã sai rồi!
             var userMappered = _mapper.Map<Account>(userDTO);
 
             await _dbContext.Accounts.AddAsync(userMappered);
