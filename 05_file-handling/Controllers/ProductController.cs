@@ -77,6 +77,11 @@ namespace _05_file_handling.Controllers
             return View(product);
         }
 
+        /// <summary>
+        /// Deletes the product identified by <paramref name="id"/> and removes its associated image file from the web root if present, then redirects to the product list.
+        /// </summary>
+        /// <param name="id">The identifier of the product to delete.</param>
+        /// <returns>Redirects to the Index action after successful deletion; returns NotFound if the product does not exist.</returns>
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {

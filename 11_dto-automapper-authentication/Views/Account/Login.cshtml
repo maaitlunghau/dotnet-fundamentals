@@ -1,0 +1,27 @@
+﻿@if (!string.IsNullOrEmpty(TempData["message"] as string))
+{
+    <div class="alert alert-danger">
+        <strong>Danger!</strong> @TempData["message"]
+    </div>
+
+}
+
+<form asp-action="Login" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">
+            Email:
+        </label>
+        <input type="text" class="form-control" placeholder="Enter email" name="email">
+    </div>
+
+    <div class="mb-3">
+        <label for="Price" class="form-label">
+            Password:
+        </label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>

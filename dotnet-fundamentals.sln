@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_dto_many-to-many", "10_d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_dto-many-to-many_practice", "10_dto-many-to-many_practice\10_dto-many-to-many_practice.csproj", "{266E0254-B27F-4084-8445-659344A9E1BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_dto-automapper-authentication", "11_dto-automapper-authentication\11_dto-automapper-authentication.csproj", "{7FA98A12-5C16-4451-9268-2FEB0529D690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,18 @@ Global
 		{266E0254-B27F-4084-8445-659344A9E1BD}.Release|x64.Build.0 = Release|Any CPU
 		{266E0254-B27F-4084-8445-659344A9E1BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{266E0254-B27F-4084-8445-659344A9E1BD}.Release|x86.Build.0 = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|x64.Build.0 = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Debug|x86.Build.0 = Debug|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|x64.ActiveCfg = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|x64.Build.0 = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|x86.ActiveCfg = Release|Any CPU
+		{7FA98A12-5C16-4451-9268-2FEB0529D690}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
