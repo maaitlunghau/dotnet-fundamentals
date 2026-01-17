@@ -90,21 +90,29 @@ namespace _11_dto_automapper_authentication.Controllers
                 return View();
             }
 
-            if (user?.Password != password && user?.Role == "USER")
+            if (user?.Password != password)
             {
-                user!.FailedLoginCount++;
-
-                if (user.FailedLoginCount >= 3)
+                if (user?.Role == "ADMIN")
                 {
-                    user.Status = "Banned";
-                    TempData["message"] = "Tài khoản của bạn đã bị ban do đăng nhập sai quá 3 lần";
+                    TempData["message"] = "Email hoặc mật khẩu chưa đúng (2)";
                 }
                 else
                 {
-                    TempData["message"] = "Mật khẩu không đúng! Bạn chỉ còn " + (3 - user.FailedLoginCount) + " lần đăng nhập!";
+                    user!.FailedLoginCount++;
+
+                    if (user.FailedLoginCount >= 3)
+                    {
+                        user.Status = "Banned";
+                        TempData["message"] = "Tài khoản của bạn đã bị ban do đăng nhập sai quá 3 lần";
+                    }
+                    else
+                    {
+                        TempData["message"] = "Mật khẩu không đúng! Bạn chỉ còn " + (3 - user.FailedLoginCount) + " lần đăng nhập!";
+                    }
+
+                    await _dbContext.SaveChangesAsync();
                 }
 
-                await _dbContext.SaveChangesAsync();
                 return View();
             }
 
