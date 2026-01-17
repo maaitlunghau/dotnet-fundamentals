@@ -2,18 +2,19 @@
 @model IEnumerable<UserDTO>
 
 <div class="container mt-3">
-    <a asp-action="Create" class="btn btn-primary">
+    <h2>Product List</h2>
+    <a asp-action="Create">
         Create a new account
     </a>
-    <h2>Product List</h2>
 
-    <table class="table">
+    <table class="table mt-4">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Email</th>
                 <th>Age</th>
                 <th>Role</th>
+                <th>Status</th>
                 <th>Created At</th>
                 <th>Actions</th>
             </tr>
@@ -26,6 +27,7 @@
                     <td>@item.Email</td>
                     <td>@item.Tuoi</td>
                     <td>@item.Role</td>
+                    <td>@item.Status</td>
                     <td>@item.CreatedAt</td>
                     <td>
                         <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display: inline;">
@@ -36,6 +38,14 @@
                         <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
                             Edit
                         </a>
+                        @if (item.Status == "Banned")
+                        {
+                            <form method="post" style="display: inline-block;">
+                                <button type="submit" class="btn btn-info" asp-action="Unban" asp-route-id="@item.Id">
+                                    Unban
+                                </button>
+                            </form>
+                        }
                     </td>
                 </tr>
             }
