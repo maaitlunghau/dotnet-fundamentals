@@ -1,0 +1,44 @@
+﻿@model User
+
+<form asp-action="Create" method="post">
+    @* Name Input *@
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Username:
+        </label>
+        <input type="text" class="form-control" placeholder="Enter username" asp-for="Username">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    @* Email Input *@
+    <div class=" mb-3 mt-3">
+        <label for="email" class="form-label">
+            Email:
+        </label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    @* Age Input *@
+    <div class="mb-3">
+        <label for="age" class="form-label">
+            Age:
+        </label>
+        <input type="number" class="form-control" placeholder="Enter age" asp-for="Age">
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    @* Password Input *@
+    <div class="mb-3">
+        <label for="Password" class="form-label">
+            Password:
+        </label>
+        <input type="password" class="form-control" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    @* Submit Button *@
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>

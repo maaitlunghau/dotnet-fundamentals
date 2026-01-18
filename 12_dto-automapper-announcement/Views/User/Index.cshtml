@@ -1,0 +1,35 @@
+﻿@model IEnumerable<User>
+@* @model List<Employee> *@
+
+<div class="container mt-3">
+    @* Header Page *@
+    <h2>User List</h2>
+    <a asp-action="Create">
+        Create a new user
+    </a>
+
+    @* Table *@
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#@item.Id</td>
+                    <td>@item.Username</td>
+                    <td>@item.Email</td>
+                    <td>@item.Age</td>
+                    <td>@item.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

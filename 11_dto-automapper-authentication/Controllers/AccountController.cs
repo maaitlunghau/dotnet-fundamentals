@@ -76,7 +76,9 @@ namespace _11_dto_automapper_authentication.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
-            var user = await _dbContext.Accounts.FirstOrDefaultAsync(x => x.Email == email);
+            var user = await _dbContext.Accounts.FirstOrDefaultAsync(x =>
+                x.Email == email
+            );
 
             if (user == null)
             {
