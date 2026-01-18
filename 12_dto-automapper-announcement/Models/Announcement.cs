@@ -15,22 +15,25 @@ public class Announcement
     [Required(ErrorMessage = "Nội dung tin thông báo không được bỏ trống!")]
     public string? Content { get; set; }
 
-    public enum AnnouncementCategory
-    {
-        [Display(Name = "Cập nhật")]
-        Update,
-
-        [Display(Name = "Hướng dẫn")]
-        Guide,
-
-        [Display(Name = "Dịch vụ")]
-        Service,
-
-        [Display(Name = "Thanh toán")]
-        Payment
-    }
+    [Required(ErrorMessage = "Danh mục tin thông báo không được bỏ trống!")]
+    public AnnouncementCategory? Category { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     public User? User { get; set; }
+}
+
+public enum AnnouncementCategory
+{
+    [Display(Name = "Cập nhật")]
+    Update,
+
+    [Display(Name = "Hướng dẫn")]
+    Guide,
+
+    [Display(Name = "Dịch vụ")]
+    Service,
+
+    [Display(Name = "Thanh toán")]
+    Payment
 }
