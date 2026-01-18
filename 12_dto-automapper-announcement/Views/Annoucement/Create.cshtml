@@ -1,0 +1,42 @@
+﻿@model _12_dto_automapper_announcement.Models.Announcement
+@using _12_dto_automapper_announcement.Models
+
+<div class="container mt-3">
+    <h2>Create Announcement</h2>
+
+    <form asp-action="Create" method="post">
+        @* <input type="hidden" asp-for="UserId" asp-items=""> *@
+
+        @* Title Input *@
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" placeholder="Enter title" asp-for="Title" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        @* Content Input *@
+        <div class="mb-3">
+            <label for="content" class="form-label">Content:</label>
+            <textarea class="form-control" placeholder="Enter content" asp-for="Content"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+
+        @* Category Select *@
+        <div class="mb-3">
+            <label for="category" class="form-label">Category:</label>
+            <select class="form-select" asp-for="Category">
+                <option value="">-- Select Category --</option>
+                <option value="Update">Cập nhật</option>
+                <option value="Guide">Hướng dẫn</option>
+                <option value="Service">Dịch vụ</option>
+                <option value="Payment">Thanh toán</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+        @* Submit Button *@
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </form>
+</div>
