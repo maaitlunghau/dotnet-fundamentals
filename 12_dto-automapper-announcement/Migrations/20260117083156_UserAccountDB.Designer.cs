@@ -12,7 +12,7 @@ using _12_dto_automapper_announcement.Models;
 namespace _12_dto_automapper_announcement.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260117080253_UserAccountDB")]
+    [Migration("20260117083156_UserAccountDB")]
     partial class UserAccountDB
     {
         /// <inheritdoc />
@@ -30,6 +30,9 @@ namespace _12_dto_automapper_announcement.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
 
                     b.Property<string>("Content")
                         .IsRequired()

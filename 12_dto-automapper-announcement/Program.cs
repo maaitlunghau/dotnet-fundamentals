@@ -1,4 +1,6 @@
 using _12_dto_automapper_announcement.Models;
+using _12_dto_automapper_announcement.Repositories;
+using _12_dto_automapper_announcement.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<IUserRepository, UserService>();
+builder.Services.AddScoped<IAnnoucementRepository, AnnoucementService>();
 
 var app = builder.Build();
 
