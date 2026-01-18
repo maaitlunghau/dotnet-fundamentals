@@ -5,6 +5,7 @@ public interface IUserRepository
 {
     public Task<IEnumerable<User>> GetAllUsersAsync();
     public Task<User?> GetUserByIdAsync(Guid? id);
+    public Task<User?> GetUserLoginAsync(string? email, string? password);
     public Task CreateUserAsync(User user);
     public Task UpdateUserAsync(User user);
     public Task DeleteUserAsync(Guid? id);

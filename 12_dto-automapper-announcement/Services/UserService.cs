@@ -19,6 +19,14 @@ public class UserService : IUserRepository
         return await _dbContext.Users.FindAsync(id);
     }
 
+    public async Task<User?> GetUserLoginAsync(string? email, string? password)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+        if (user is null) return null!;
+
+        return user;
+    }
+
     public async Task CreateUserAsync(User user)
     {
         await _dbContext.Users.AddAsync(user);
