@@ -1,4 +1,6 @@
 using _13_school_management_system.Models;
+using _13_school_management_system.Repositories;
+using _13_school_management_system.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<IStudentRepository, StudentService>();
 
 var app = builder.Build();
 
