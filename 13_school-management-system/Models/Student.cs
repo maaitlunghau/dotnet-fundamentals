@@ -16,9 +16,11 @@ public class Student
     [StringLength(60, ErrorMessage = "Tên sinh viên không được quá 60 kí tự!")]
     public string? StudentName { get; set; }
 
-    [Required(ErrorMessage = "Ngày tháng năm sinh sinh viên không được bỏ trống!")]
+    [Required]
+    [Column(TypeName = "date")]
     [DataType(DataType.Date)]
-    public DateTime DateOfBirth { get; set; }
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    public DateTime? DateOfBirth { get; set; }
 
     [Required(ErrorMessage = "Địa chỉ sinh viên không được bỏ trống!")]
     [StringLength(100, ErrorMessage = "Địa chỉ không được quá 100 kí tự!")]

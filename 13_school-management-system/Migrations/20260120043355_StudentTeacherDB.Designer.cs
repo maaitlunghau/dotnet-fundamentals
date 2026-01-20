@@ -12,8 +12,8 @@ using _13_school_management_system.Models;
 namespace _13_school_management_system.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20260120034027_SeedData")]
-    partial class SeedData
+    [Migration("20260120043355_StudentTeacherDB")]
+    partial class StudentTeacherDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace _13_school_management_system.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("StudentName")
                         .IsRequired()

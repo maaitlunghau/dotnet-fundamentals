@@ -8,11 +8,48 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _13_school_management_system.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedData : Migration
+    public partial class StudentTeacherDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Teachers",
+                columns: table => new
+                {
+                    TeacherId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TeacherName = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teachers", x => x.TeacherId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Students",
+                columns: table => new
+                {
+                    StudentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TeacherId = table.Column<int>(type: "int", nullable: false),
+                    StudentName = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "date", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students", x => x.StudentId);
+                    table.ForeignKey(
+                        name: "FK_Students_Teachers_TeacherId",
+                        column: x => x.TeacherId,
+                        principalTable: "Teachers",
+                        principalColumn: "TeacherId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Teachers",
                 columns: new[] { "TeacherId", "Department", "Email", "TeacherName" },
@@ -40,80 +77,21 @@ namespace _13_school_management_system.Migrations
                     { 9, "Quảng Nam", new DateTime(2002, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Phan Văn N", 4 },
                     { 10, "Nghệ An", new DateTime(2001, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ngô Thị O", 1 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_TeacherId",
+                table: "Students",
+                column: "TeacherId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 1);
+            migrationBuilder.DropTable(
+                name: "Students");
 
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 9);
-
-            migrationBuilder.DeleteData(
-                table: "Students",
-                keyColumn: "StudentId",
-                keyValue: 10);
-
-            migrationBuilder.DeleteData(
-                table: "Teachers",
-                keyColumn: "TeacherId",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Teachers",
-                keyColumn: "TeacherId",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Teachers",
-                keyColumn: "TeacherId",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Teachers",
-                keyColumn: "TeacherId",
-                keyValue: 4);
+            migrationBuilder.DropTable(
+                name: "Teachers");
         }
     }
 }
