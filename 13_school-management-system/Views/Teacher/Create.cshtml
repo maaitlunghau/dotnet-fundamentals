@@ -1,0 +1,31 @@
+﻿@model Teacher
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Tên giảng viên:
+        </label>
+        <input type="text" class="form-control" placeholder="Nhập tên giảng viên" asp-for="TeacherName">
+        <span asp-validation-for="TeacherName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="DateOfBirth" class="form-label">
+            Email:
+        </label>
+        <input type="email" class="form-control" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Department" class="form-label">
+            Department:
+        </label>
+        <input type="text" class="form-control" placeholder="Nhập phòng ban" asp-for="Department">
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>

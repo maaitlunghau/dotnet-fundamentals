@@ -34,9 +34,12 @@ namespace _13_school_management_system.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            var t = await _repo.GetTeacherByIdAsync(id);
+            if (t == null) return NotFound();
+
+            return View(t);
         }
 
         [HttpPost]

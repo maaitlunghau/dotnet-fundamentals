@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Teacher>
+
+<div class="container mt-3">
+    <h2 class="mb-4">
+        Danh sách giảng viên
+    </h2>
+    <a asp-action="Create">
+        Thêm mới giảng viên
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Giảng viên</th>
+                <th>Email</th>
+                <th>Chuyên môn</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                 <tr>
+                    <td>#@item.TeacherId</td>
+                    <td>@item.TeacherName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Department</td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.TeacherId">
+                            Edit
+                        </a>
+                        <form method="post" style="display: inline-block;">
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TeacherName">
+                                Delete
+                            </a>
+                        </form>
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+}
+        </tbody>
+    </table>
+</div>
