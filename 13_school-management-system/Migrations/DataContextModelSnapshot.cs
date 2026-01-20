@@ -36,7 +36,7 @@ namespace _13_school_management_system.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("StudentName")
                         .IsRequired()

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Student>
+
+<div class="container mt-3">
+    <h2 class="mb-4">Danh sách sinh viên</h2>
+    <a asp-action="Create">
+        Thêm mới sinh viên
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên nhân viên</th>
+                <th>Ngày tháng năm sinh</th>
+                <th>Địa chỉ</th>
+                <th>Giáo viên phụ trách</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>#@item.StudentId</td>
+                    <td>@item.StudentName</td>
+                    <td>@item.DateOfBirth?.ToString("yyyy-MM-dd")</td>
+                    <td>@item.Address</td>
+                    <td>@(item.Teacher?.TeacherName ?? "Chưa nhập lớp")</td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.StudentId">
+                            Edit
+                        </a>
+                        <form method="post" style="display: inline-block;">
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.StudentId">
+                                Delete
+                            </a>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
