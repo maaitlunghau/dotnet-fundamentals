@@ -1,6 +1,8 @@
 ﻿@model Teacher
 
 <form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="TeacherId" />
+
     <div class="mb-3">
         <label for="fullname" class="form-label">
             Tên giảng viên:
