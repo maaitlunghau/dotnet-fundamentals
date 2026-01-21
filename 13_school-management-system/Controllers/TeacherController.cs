@@ -9,9 +9,23 @@ namespace _13_school_management_system.Controllers
         public TeacherController(ITeacherRepository repo) => _repo = repo;
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? department)
         {
-            var teachers = await _repo.GetAllTeachersAsync();
+            var allTeachers = await _repo.GetAllTeachersAsync();
+            var teachers = allTeachers;
+
+            if (!string.IsNullOrEmpty(department))
+            {
+                teachers = teachers.Where(t => t.Department == department);
+            }
+
+            ViewBag.Departments = allTeachers
+                .Select(t => t.Department)
+                .Distinct()
+                .ToList();
+
+            ViewBag.SelectedDepartment = department;
+
             return View(teachers);
         }
 
