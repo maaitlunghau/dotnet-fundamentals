@@ -69,9 +69,11 @@
                             </button>
                         </form>
 
-                        <a asp-action="Edit" asp-route-id="@item.TeacherId" class="btn btn-sm btn-outline-secondary">
+                        <a asp-controller="Student" asp-action="Index" asp-route-teacherName="@item.TeacherName"
+                            class="btn btn-sm btn-outline-secondary">
                             View Students
                         </a>
+
                     </td>
                 </tr>
             }
