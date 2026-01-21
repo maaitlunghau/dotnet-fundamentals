@@ -87,7 +87,7 @@ namespace _13_school_management_system.Controllers
             }
 
             var teachers = await _teacherRepo.GetAllTeachersAsync();
-            ViewBag.TeacherList = teachers
+            ViewBag.Teachers = teachers
                 .Select(t => new SelectListItem
                 {
                     Value = t.TeacherId.ToString(),
@@ -105,7 +105,7 @@ namespace _13_school_management_system.Controllers
             if (student is null) return NotFound();
 
             var teachers = await _teacherRepo.GetAllTeachersAsync();
-            ViewBag.TeacherList = teachers
+            ViewBag.Teachers = teachers
                 .Select(t => new SelectListItem
                 {
                     Value = t.TeacherId.ToString(),
@@ -131,7 +131,7 @@ namespace _13_school_management_system.Controllers
 
             var teachers = await _teacherRepo.GetAllTeachersAsync();
 
-            ViewBag.TeacherList = teachers
+            ViewBag.Teachers = teachers
                 .Select(t => new SelectListItem
                 {
                     Value = t.TeacherId.ToString(),

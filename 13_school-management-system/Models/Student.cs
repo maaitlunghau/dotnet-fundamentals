@@ -10,7 +10,8 @@ public class Student
     public int StudentId { get; set; }
 
     [ForeignKey("TeacherId")]
-    public int TeacherId { get; set; }
+    [Required(ErrorMessage = "Vui lòng chọn giảng viên")]
+    public int? TeacherId { get; set; }
 
     [Required(ErrorMessage = "Tên sinh viên không được phép bỏ trống!")]
     [StringLength(60, MinimumLength = 3, ErrorMessage = "Tên sinh viên không được quá 60 kí tự!")]
