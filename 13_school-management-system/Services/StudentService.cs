@@ -11,7 +11,9 @@ public class StudentService : IStudentRepository
 
     public async Task<IEnumerable<Student>> GetAllStudentsAsync()
     {
-        return await _dbContext.Students.ToListAsync();
+        return await _dbContext.Students
+            .Include(s => s.Teacher)
+            .ToListAsync();
     }
 
     public async Task<Student?> GetStudentByIdAsync(int? id)

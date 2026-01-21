@@ -9,10 +9,26 @@ namespace _13_school_management_system.Controllers
         public StudentController(IStudentRepository repo) => _repo = repo;
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? teacherName)
         {
-            var students = await _repo.GetAllStudentsAsync();
+            var allStudents = await _repo.GetAllStudentsAsync();
+            var students = allStudents;
+
+            if (!string.IsNullOrEmpty(teacherName))
+            {
+                students = students.Where(s => s.Teacher?.TeacherName == teacherName);
+            }
+
+            ViewBag.Teachers = allStudents
+                .Where(s => s.Teacher != null)
+                .Select(s => s.Teacher!.TeacherName)
+                .Distinct()
+                .ToList();
+
+            ViewBag.SelectedTeacher = teacherName;
+
             return View(students);
+
         }
 
         [HttpGet]
@@ -27,6 +43,8 @@ namespace _13_school_management_system.Controllers
             if (ModelState.IsValid)
             {
                 await _repo.CreateStudentAsync(stu);
+                TempData["message"] = "Tạo mới sinh viên thành công";
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -45,6 +63,8 @@ namespace _13_school_management_system.Controllers
             if (ModelState.IsValid)
             {
                 await _repo.UpdateStudentAsync(stu);
+                TempData["message"] = "Cập nhật sinh viên thành công";
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -55,6 +75,8 @@ namespace _13_school_management_system.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             await _repo.DeleteStudentAsync(id);
+            TempData["message"] = "Đã xoá sinh viên thành công";
+
             return RedirectToAction(nameof(Index));
         }
     }
