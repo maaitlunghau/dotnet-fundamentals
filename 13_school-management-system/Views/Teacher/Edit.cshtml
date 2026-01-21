@@ -31,3 +31,67 @@
         Submit
     </button>
 </form>
+
+<hr />
+@* <form asp-action="AddStudent" method="post" class="row g-2 mt-3">
+    <input type="hidden" name="teacherId" value="@Model.TeacherId" />
+
+    <div class="col-md-6">
+        <select name="studentId" class="form-select">
+            <option value="">-- Chọn sinh viên --</option>
+            @foreach (var s in ViewBag.UnassignedStudents)
+            {
+                <option value="@s.StudentId">@s.StudentName</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-primary">Thêm</button>
+    </div>
+</form> *@
+
+<h5 class="mt-4">Danh sách sinh viên phụ trách</h5>
+
+@if (Model.Students == null || !Model.Students.Any())
+{
+    <p class="text-muted">
+        Chưa có sinh viên nào.
+    </p>
+}
+else
+{
+    <table class="table table-bordered table-sm mt-2">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Tên sinh viên</th>
+                <th>Ngày sinh</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model.Students)
+            {
+                <tr>
+                    <td>#@s.StudentId</td>
+                    <td>@s.StudentName</td>
+                    <td>@s.DateOfBirth?.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <form asp-action="RemoveStudent" asp-route-teacherId="@Model.TeacherId"
+                            asp-route-studentId="@s.StudentId" method="post" class="d-inline"
+                            onsubmit="return confirm('Gỡ sinh viên này khỏi giáo viên?');">
+                            <button class="btn btn-sm btn-outline-danger">
+                                Gỡ
+                            </button>
+                        </form>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@s.StudentId"
+                            class="btn btn-sm btn-outline-info me-1">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

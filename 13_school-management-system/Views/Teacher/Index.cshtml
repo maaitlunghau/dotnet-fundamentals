@@ -1,12 +1,41 @@
 ﻿@model IEnumerable<Teacher>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="mb-0">Danh sách giảng viên</h2>
+    @if (!string.IsNullOrEmpty(TempData["message"] as string))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
 
-        <a asp-action="Create" class="btn btn-primary">
-            + Thêm mới giảng viên
-        </a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- Header -->
+        <div class="d-flex flex-column mb-3">
+            <h2 class="mb-2">Danh sách giảng viên</h2>
+
+            <a asp-action="Create">
+                Thêm mới giảng viên
+            </a>
+        </div>
+
+        <!-- Filter -->
+        <div class="row mb-3">
+            <div class="col-md-4! ms-auto">
+                <form asp-action="Index" method="get">
+                    <select name="department" class="form-select" onchange="this.form.submit()">
+                        <option value="">-- Tất cả chuyên môn --</option>
+
+                        @foreach (var dept in ViewBag.Departments)
+                        {
+                            <option value="@dept" selected="@(dept == ViewBag.SelectedDepartment)">
+                                @dept
+                            </option>
+                        }
+                    </select>
+                </form>
+            </div>
+        </div>
     </div>
 
     <table class="table table-bordered table-hover align-middle">
@@ -39,6 +68,11 @@
                                 Delete
                             </button>
                         </form>
+
+                        <a asp-controller="Student" asp-action="Index" asp-route-teacherName="@item.TeacherName"
+                            class="btn btn-sm btn-outline-secondary">
+                            View Students
+                        </a>
                     </td>
                 </tr>
             }
