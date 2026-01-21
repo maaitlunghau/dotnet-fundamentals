@@ -11,6 +11,10 @@ public class DataContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Teacher>()
+            .HasIndex(t => t.Email)
+            .IsUnique();
+
+        modelBuilder.Entity<Teacher>()
             .HasData(
                 new Teacher
                 {
