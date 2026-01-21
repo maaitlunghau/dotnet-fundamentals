@@ -14,6 +14,7 @@ namespace _13_school_management_system.Controllers
             var allTeachers = await _repo.GetAllTeachersAsync();
             var teachers = allTeachers;
 
+            // filter
             if (!string.IsNullOrEmpty(department))
             {
                 teachers = teachers.Where(t => t.Department == department);

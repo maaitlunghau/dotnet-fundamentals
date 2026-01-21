@@ -1,5 +1,15 @@
 ﻿@model IEnumerable<Student>
 
+@{
+    string ToggleDir(string col) =>
+    ViewBag.SortBy == col && ViewBag.SortDir == "asc" ? "desc" : "asc";
+
+    string SortIcon(string col) =>
+    ViewBag.SortBy == col
+    ? (ViewBag.SortDir == "asc" ? "▲" : "▼")
+    : "";
+}
+
 <div class="container mt-4">
     @if (!string.IsNullOrEmpty(TempData["message"] as string))
     {
@@ -44,8 +54,20 @@
                 <thead class="table-dark text-center">
                     <tr>
                         <th style="width: 5%">ID</th>
-                        <th>Họ tên</th>
-                        <th style="width: 15%">Ngày sinh</th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortBy="name" asp-route-sortDir="@ToggleDir("name")"
+                                asp-route-teacherName="@ViewBag.SelectedTeacher"
+                                class="text-white text-decoration-none">
+                                Họ tên @SortIcon("name")
+                            </a>
+                        </th>
+                        <th>
+                            <a asp-action="Index" asp-route-sortBy="dob" asp-route-sortDir="@ToggleDir("dob")"
+                                asp-route-teacherName="@ViewBag.SelectedTeacher"
+                                class="text-white text-decoration-none">
+                                Ngày sinh @SortIcon("dob")
+                            </a>
+                        </th>
                         <th>Địa chỉ</th>
                         <th>Giáo viên phụ trách</th>
                         <th style="width: 15%">Thao tác</th>

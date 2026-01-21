@@ -9,15 +9,38 @@ namespace _13_school_management_system.Controllers
         public StudentController(IStudentRepository repo) => _repo = repo;
 
         [HttpGet]
-        public async Task<IActionResult> Index(string? teacherName)
+        public async Task<IActionResult> Index(
+            string? teacherName,
+            string? sortBy,
+            string? sortDir)
         {
             var allStudents = await _repo.GetAllStudentsAsync();
-            var students = allStudents;
+            var students = allStudents.AsQueryable();
 
+            // Filter
             if (!string.IsNullOrEmpty(teacherName))
             {
-                students = students.Where(s => s.Teacher?.TeacherName == teacherName);
+                students = students.Where(s => s.Teacher!.TeacherName == teacherName);
             }
+
+            // Sort
+            sortDir = sortDir == "asc" ? "asc" : "desc";
+
+            students = sortBy switch
+            {
+                "name" => sortDir == "asc"
+                    ? students.OrderBy(s => s.StudentName)
+                    : students.OrderByDescending(s => s.StudentName),
+
+                "dob" => sortDir == "asc"
+                    ? students.OrderBy(s => s.DateOfBirth)
+                    : students.OrderByDescending(s => s.DateOfBirth),
+
+                _ => students.OrderBy(s => s.StudentId)
+            };
+
+            ViewBag.SortBy = sortBy;
+            ViewBag.SortDir = sortDir;
 
             ViewBag.Teachers = allStudents
                 .Where(s => s.Teacher != null)
@@ -27,8 +50,7 @@ namespace _13_school_management_system.Controllers
 
             ViewBag.SelectedTeacher = teacherName;
 
-            return View(students);
-
+            return View(students.ToList());
         }
 
         [HttpGet]
