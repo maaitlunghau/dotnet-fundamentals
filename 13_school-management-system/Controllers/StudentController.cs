@@ -1,12 +1,18 @@
 using _13_school_management_system.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace _13_school_management_system.Controllers
 {
     public class StudentController : Controller
     {
         private readonly IStudentRepository _repo;
-        public StudentController(IStudentRepository repo) => _repo = repo;
+        private readonly ITeacherRepository _teacherRepo;
+        public StudentController(IStudentRepository repo, ITeacherRepository teacherRepo)
+        {
+            _repo = repo;
+            _teacherRepo = teacherRepo;
+        }
 
         [HttpGet]
         public async Task<IActionResult> Index(
@@ -56,6 +62,16 @@ namespace _13_school_management_system.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            var teachers = await _teacherRepo.GetAllTeachersAsync();
+
+            ViewBag.Teachers = teachers
+                .Select(t => new SelectListItem
+                {
+                    Value = t.TeacherId.ToString(),
+                    Text = t.TeacherName
+                })
+                .ToList();
+
             return View();
         }
 
@@ -70,13 +86,36 @@ namespace _13_school_management_system.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            var teachers = await _teacherRepo.GetAllTeachersAsync();
+            ViewBag.TeacherList = teachers
+                .Select(t => new SelectListItem
+                {
+                    Value = t.TeacherId.ToString(),
+                    Text = t.TeacherName
+                })
+                .ToList();
+
             return View(stu);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            var student = await _repo.GetStudentByIdAsync(id);
+            if (student is null) return NotFound();
+
+            var teachers = await _teacherRepo.GetAllTeachersAsync();
+            ViewBag.TeacherList = teachers
+                .Select(t => new SelectListItem
+                {
+                    Value = t.TeacherId.ToString(),
+                    Text = t.TeacherName,
+                    Selected = (t.TeacherId == student.TeacherId)
+                })
+                .ToList();
+
+
+            return View(student);
         }
 
         [HttpPost]
@@ -89,6 +128,17 @@ namespace _13_school_management_system.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            var teachers = await _teacherRepo.GetAllTeachersAsync();
+
+            ViewBag.TeacherList = teachers
+                .Select(t => new SelectListItem
+                {
+                    Value = t.TeacherId.ToString(),
+                    Text = t.TeacherName,
+                    Selected = (t.TeacherId == stu.TeacherId)
+                })
+                .ToList();
 
             return View(stu);
         }
