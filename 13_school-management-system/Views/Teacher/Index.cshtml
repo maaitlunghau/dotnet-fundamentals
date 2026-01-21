@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<Teacher>
 
 <div class="container mt-4">
+    @if (!string.IsNullOrEmpty(TempData["message"] as string))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
     <div class="d-flex justify-content-between align-items-center mb-3">
         <!-- Header -->
         <div class="d-flex flex-column mb-3">
@@ -10,7 +18,6 @@
                 Thêm mới giảng viên
             </a>
         </div>
-
 
         <!-- Filter -->
         <div class="row mb-3">
