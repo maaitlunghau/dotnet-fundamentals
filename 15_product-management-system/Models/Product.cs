@@ -14,11 +14,12 @@ public class Product
 
     [Required(ErrorMessage = "Product price is required.")]
     [Column(TypeName = "decimal(10,2)")]
-    public decimal Price { get; set; }
+    public decimal? Price { get; set; }
 
     [Required(ErrorMessage = "Image is required.")]
     public string? Image { get; set; }
 
     [NotMapped]
+    [Required(ErrorMessage = "Please select an image.")]
     public IFormFile? ImageHandling { get; set; }
 }
