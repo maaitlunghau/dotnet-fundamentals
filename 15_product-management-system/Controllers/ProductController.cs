@@ -115,6 +115,15 @@ namespace _15_product_management_system.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(Guid? id)
         {
+            var pro = await _repo.GetProductByIdAsync(id);
+            if (pro is null) return NotFound();
+
+            if (!string.IsNullOrEmpty(pro.Image))
+            {
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, pro.Image.TrimStart('/'));
+                if (System.IO.File.Exists(filePath)) System.IO.File.Delete(filePath);
+            }
+
             await _repo.DeleteProductAsync(id);
             return RedirectToAction(nameof(Index));
         }
