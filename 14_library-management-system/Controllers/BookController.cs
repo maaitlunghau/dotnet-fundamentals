@@ -15,12 +15,20 @@ namespace _14_library_management_system.Controllers
             return View(books);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, string? isbn)
         {
             var book = await _repo.GetBookByIdAsync(id);
             if (book is null) return NotFound();
 
+            if (string.IsNullOrWhiteSpace(isbn) || !isbn.Equals(book.ISBN))
+            {
+                TempData["Error"] = "ISBN không đúng. Không thể xoá!";
+                return RedirectToAction(nameof(Index));
+            }
+
             await _repo.DeleteBookAsync(id);
+            TempData["Success"] = "Đã xoá sách thành công.";
+
             return RedirectToAction(nameof(Index));
         }
     }
