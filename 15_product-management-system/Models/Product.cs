@@ -16,7 +16,6 @@ public class Product
     [Column(TypeName = "decimal(10,2)")]
     public decimal? Price { get; set; }
 
-    [Required(ErrorMessage = "Image is required.")]
     public string? Image { get; set; }
 
     [NotMapped]

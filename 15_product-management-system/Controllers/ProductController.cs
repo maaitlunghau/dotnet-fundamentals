@@ -38,7 +38,7 @@ namespace _15_product_management_system.Controllers
             if (ModelState.IsValid)
             {
                 string fileName = Guid.NewGuid() + pro?.ImageHandling?.FileName;
-                pro?.Image = "/images/" + fileName;
+                pro!.Image = "/images/" + fileName;
 
                 string folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "images");
                 if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
@@ -47,7 +47,7 @@ namespace _15_product_management_system.Controllers
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    await pro!.ImageHandling!.CopyToAsync(fileStream);
+                    await pro.ImageHandling!.CopyToAsync(fileStream);
                 }
 
                 await _repo.CreateProductAsync(pro);
