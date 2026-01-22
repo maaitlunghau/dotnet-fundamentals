@@ -15,11 +15,16 @@ namespace _15_product_management_system.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string? search)
+        public async Task<IActionResult> Index(
+            string? search,
+            string? sortBy,
+            string? sortDir
+        )
         {
             var allProducts = await _repo.GetAllProductsAsync();
             var products = allProducts;
 
+            // filter
             if (!string.IsNullOrWhiteSpace(search))
             {
                 products = products
@@ -27,6 +32,25 @@ namespace _15_product_management_system.Controllers
                     .OrderBy(prod => prod.ProductName)
                     .ToList();
             }
+
+            // sort
+            sortDir = sortDir == "asc" ? "asc" : "desc";
+
+            products = sortBy switch
+            {
+                "name" => sortDir == "asc" ?
+                    products.OrderBy(p => p.ProductName)
+                    : products.OrderByDescending(p => p.ProductName),
+
+                "price" => sortDir == "asc" ?
+                    products.OrderBy(p => p.Price)
+                    : products.OrderByDescending(p => p.Price),
+
+                _ => products.OrderBy(p => p.ProductName)
+            };
+
+            ViewBag.sortBy = sortBy;
+            ViewBag.sortDir = sortDir;
 
             return View(products);
         }
