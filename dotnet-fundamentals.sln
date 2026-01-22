@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_dto-automapper-announcem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_school-management-system", "13_school-management-system\13_school-management-system.csproj", "{A4244CB3-6C54-4C51-A126-4F5A4603C2CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_library-management-system", "14_library-management-system\14_library-management-system.csproj", "{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -295,6 +297,18 @@ Global
 		{A4244CB3-6C54-4C51-A126-4F5A4603C2CF}.Release|x64.Build.0 = Release|Any CPU
 		{A4244CB3-6C54-4C51-A126-4F5A4603C2CF}.Release|x86.ActiveCfg = Release|Any CPU
 		{A4244CB3-6C54-4C51-A126-4F5A4603C2CF}.Release|x86.Build.0 = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|x64.Build.0 = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Debug|x86.Build.0 = Debug|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|x64.ActiveCfg = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|x64.Build.0 = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|x86.ActiveCfg = Release|Any CPU
+		{BC2F72DA-6CF4-44D7-A75D-00DAB8220FF0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
