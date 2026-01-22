@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="~/_14_library_management_system.styles.css" asp-append-version="true" />
 </head>
 
+@using Newtonsoft.Json
+
+@{
+    var userJson = Context.Session.GetString("userInfo");
+    User? user = null;
+
+    if (!string.IsNullOrEmpty(userJson))
+    {
+        user = JsonConvert.DeserializeObject<User>(userJson);
+    }
+}
+
 <body class="bg-light d-flex flex-column min-vh-100">
 
     <!-- 🔝 NAVBAR -->
@@ -25,19 +37,48 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto gap-2">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Book" asp-action="Index">Quản lý sách (Admin)</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="User" asp-action="Index">Thư viện sách (Guest)</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    @if (user != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        @if (user?.Role == "admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Book" asp-action="Index">
+                                    Quản lý sách
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="User" asp-action="Index">
+                                    Thư viện sách
+                                </a>
+                            </li>
+                        }
+
+                        <li class="nav-item text-white fw-semibold">
+                            👋 Xin chào, <span class="text-warning">@user?.Username</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-sm" asp-controller="Auth" asp-action="Logout">
+                                Đăng xuất
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-light btn-sm" asp-controller="Auth" asp-action="Login">
+                                Đăng nhập
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
