@@ -15,9 +15,19 @@ namespace _15_product_management_system.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
-            var products = await _repo.GetAllProductsAsync();
+            var allProducts = await _repo.GetAllProductsAsync();
+            var products = allProducts;
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                products = products
+                    .Where(prod => prod!.ProductName!.ToLower().Contains(search.ToLower()))
+                    .OrderBy(prod => prod.ProductName)
+                    .ToList();
+            }
+
             return View(products);
         }
 

@@ -1,48 +1,53 @@
 ﻿@model IEnumerable<Product>
 
 <div class="container">
-    <h1>
-        Product Page
-    </h1>
-    <a asp-action="Create">
-        Creat new product
-    </a>
-    <p>
-        Choose any product to view detail information.
-    </p>
+    <h1>Product Page</h1>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <a asp-action="Create" class="btn btn-primary">
+            Create new product
+        </a>
+
+        <!-- Search form -->
+        <form asp-action="Index" method="get" class="d-flex" style="gap: 5px;">
+            <input type="text" name="search" class="form-control" placeholder="Search product name..."
+                value="@Context.Request.Query["search"]" />
+            <button type="submit" class="btn btn-outline-success">Search</button>
+        </form>
+    </div>
+
+    <p>Choose any product to view detail information.</p>
+
+    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.ProductName</td>
-                    <td>$@item.Price</td>
-                    <td>
-                        <img src="@item.Image" width="150" alt="hình-sản-phẩm">
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">
-                            Edit
-                        </a>
-                        <form asp-action="Delete" asp-route-id="@item.Id">
-                            <button class="btn btn-danger">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.ProductName</td>
+                        <td>$@item.Price</td>
+                        <td>
+                            <img src="@item.Image" width="150" alt="hình-sản-phẩm" />
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline-block;">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
