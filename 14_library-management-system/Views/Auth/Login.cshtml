@@ -1,0 +1,49 @@
+﻿@model _14_library_management_system.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow border-0">
+            <div class="card-body p-4">
+
+                <h3 class="text-center mb-4 fw-bold">🔐 Đăng nhập</h3>
+
+                @* ALERT ERROR *@
+                @if (!string.IsNullOrEmpty(TempData["message"] as string))
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["message"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+
+                <form asp-action="Login" method="post">
+
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Nhập username" />
+                        <span asp-validation-for="Username" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Nhập password" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Đăng nhập
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
