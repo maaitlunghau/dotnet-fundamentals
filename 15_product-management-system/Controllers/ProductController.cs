@@ -24,14 +24,32 @@ namespace _15_product_management_system.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(new Product());
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(Product? pro)
         {
+            if (pro?.ImageHandling == null)
+            {
+                ModelState.AddModelError("ImageHandling", "Please select an image.");
+            }
+
             if (ModelState.IsValid)
             {
+                string fileName = Guid.NewGuid() + pro?.ImageHandling?.FileName;
+                pro?.Image = "/images/" + fileName;
+
+                string folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+                string filePath = Path.Combine(folderPath, fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await pro!.ImageHandling!.CopyToAsync(fileStream);
+                }
+
                 await _repo.CreateProductAsync(pro);
                 return RedirectToAction(nameof(Index));
             }

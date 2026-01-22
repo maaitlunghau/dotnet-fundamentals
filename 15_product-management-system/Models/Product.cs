@@ -20,6 +20,5 @@ public class Product
     public string? Image { get; set; }
 
     [NotMapped]
-    [Required(ErrorMessage = "Please select an image.")]
     public IFormFile? ImageHandling { get; set; }
 }
