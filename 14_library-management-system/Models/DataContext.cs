@@ -16,6 +16,34 @@ public class DataContext : DbContext
         modelBuilder.Entity<Book>()
             .HasIndex(b => b.ISBN)
             .IsUnique();
+
+        modelBuilder.Entity<Book>()
+            .HasData(
+                new Book
+                {
+                    Id = 1,
+                    Title = "The Great Gatsby",
+                    Author = "F. Scott",
+                    ISBN = "1234567890123",
+                    Availability = "Available"
+                },
+                new Book
+                {
+                    Id = 2,
+                    Title = "To Kill a Mockingbird",
+                    Author = "Harper Lee",
+                    ISBN = "2345678901234",
+                    Availability = "Borrowed"
+                },
+                new Book
+                {
+                    Id = 3,
+                    Title = "1984",
+                    Author = "George Orwell",
+                    ISBN = "3456789012345",
+                    Availability = "Available"
+                }
+            );
     }
 
     public DbSet<User> Users { get; set; }
