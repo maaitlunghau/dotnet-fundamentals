@@ -21,6 +21,7 @@
 <ItemGroup>
   <Folder Include="Repositories/" />
   <Folder Include="Services/" />
+  <Folder Include="Views/Employee/" />
 </ItemGroup>
 
 </Project>

@@ -1,0 +1,60 @@
+﻿@model Employee
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">
+        Update or Delete Employee?
+    </h2>
+
+    <form asp-action="UpdateOrDelete" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label class="form-label">ID</label>
+            <input type="number" readonly asp-for="Id" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="BirthDate" type="datetime-local" class="form-control" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            @if (!string.IsNullOrEmpty(Model.Photo))
+            {
+                <img src="@Model.Photo" alt="Employee Image" width="150" class="mb-2 d-block border" />
+            }
+            <input type="file" class="form-control" asp-for="PhotoHandling">
+            <span asp-validation-for="PhotoHandling" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="Skills" class="form-control" />
+            <span asp-validation-for="Skills" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" name="action" value="update" class="btn btn-primary">
+                Update
+            </button>
+
+            <button type="submit" asp-action="Delete" value="delete" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to delete this employee?');">
+                Delete
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to list
+            </a>
+        </div>
+    </form>
+</div>

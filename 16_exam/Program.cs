@@ -1,4 +1,6 @@
 using _16_exam.Models;
+using _16_exam.Repositories;
+using _16_exam.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
 
 var app = builder.Build();
 
