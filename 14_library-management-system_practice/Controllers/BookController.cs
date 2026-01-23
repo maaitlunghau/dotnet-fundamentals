@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using _14_library_management_system_practice.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,8 +13,15 @@ namespace _14_library_management_system_practice.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var books = await _repo.getAllBooksAsync();
-            return View(books);
+            var userLogin = HttpContext.Session.GetString("userInfo");
+            if (!string.IsNullOrEmpty(userLogin))
+            {
+                var books = await _repo.getAllBooksAsync();
+                return View(books);
+            }
+
+            TempData["message"] = "Please login to continue";
+            return RedirectToAction("Login", "Auth");
         }
 
         [HttpPost]

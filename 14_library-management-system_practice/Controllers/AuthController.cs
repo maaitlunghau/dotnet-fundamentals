@@ -14,7 +14,11 @@ namespace _14_library_management_system_practice.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            TempData.Remove("message");
+            if (TempData["message"] == null)
+            {
+                TempData.Remove("message");
+            }
+
             return View();
         }
 
