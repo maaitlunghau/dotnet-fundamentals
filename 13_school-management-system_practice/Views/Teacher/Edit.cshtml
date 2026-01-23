@@ -1,0 +1,156 @@
+﻿@model Teacher
+
+<form asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label for="fullname" class="form-label">
+            Tên giảng viên:
+        </label>
+        <input type="text" class="form-control" placeholder="Nhập tên giảng viên" asp-for="TeacherName">
+        <span asp-validation-for="TeacherName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="DateOfBirth" class="form-label">
+            Email:
+        </label>
+        <input type="email" class="form-control" placeholder="Nhập email giảng viên" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Department" class="form-label">
+            Department:
+        </label>
+        <input type="text" class="form-control" placeholder="Nhập phòng ban" asp-for="Department">
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
+
+@if (Model.Students != null && Model.Students.Any())
+{
+    <hr />
+
+    <h5 class="mt-4 mb-3">
+        Danh sách sinh viên phụ trách
+    </h5>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light text-center">
+            <tr>
+                <th style="width: 5%">ID</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stu in Model.Students)
+            {
+                <tr>
+                    <td class="text-center fw-bold">
+                        #@stu.Id
+                    </td>
+                    <td>@stu.StudentName</td>
+                    <td class="text-center">
+                        @stu.DateOfBirth!.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>@stu.Address</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                            data-bs-target="#changeTeacherModal" data-student-id="@stu.Id" data-student-name="@stu.StudentName">
+                            Đổi giảng viên
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning mt-4">
+        Giảng viên này chưa phụ trách sinh viên nào.
+    </div>
+}
+
+<div class="modal fade" id="changeTeacherModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-controller="Student" asp-action="ChangeTeacher" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Đổi giảng viên cho sinh viên
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" name="StudentId" id="studentIdInput" />
+
+                    <p>
+                        Sinh viên:
+                        <strong id="studentNameText"></strong>
+                    </p>
+
+                    <div class="list-group">
+                        @foreach (var t in ViewBag.OtherTeachers)
+                        {
+                            <button type="button" class="list-group-item list-group-item-action teacher-item"
+                                data-teacher-id="@t.Id">
+                                @t.TeacherName
+                            </button>
+                        }
+                    </div>
+
+                    <input type="hidden" name="NewTeacherId" id="newTeacherIdInput" />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" id="confirmBtn" class="btn btn-primary" disabled>
+                        Xác nhận đổi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('changeTeacherModal');
+    const studentIdInput = document.getElementById('studentIdInput');
+    const studentNameText = document.getElementById('studentNameText');
+    const newTeacherIdInput = document.getElementById('newTeacherIdInput');
+    const confirmBtn = document.getElementById('confirmBtn');
+
+    modal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+
+        const studentId = button.getAttribute('data-student-id');
+        const studentName = button.getAttribute('data-student-name');
+
+        studentIdInput.value = studentId;
+        studentNameText.innerText = studentName;
+
+        newTeacherIdInput.value = '';
+        confirmBtn.disabled = true;
+
+        document.querySelectorAll('.teacher-item').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    });
+
+    document.querySelectorAll('.teacher-item').forEach(btn => {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.teacher-item').forEach(b => b.classList.remove('active'));
+
+            this.classList.add('active');
+            newTeacherIdInput.value = this.getAttribute('data-teacher-id');
+            confirmBtn.disabled = false;
+        });
+    });
+</script>

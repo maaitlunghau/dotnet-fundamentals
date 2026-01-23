@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Teacher>
+
+<div class="container mt-4">
+    @if (!string.IsNullOrEmpty(TempData["message"] as string))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex flex-column mb-3">
+            <h2 class="mb-2">Danh sách giảng viên</h2>
+
+            <a asp-action="Create">
+                Thêm mới giảng viên
+            </a>
+        </div>
+
+        <!-- Filter -->
+        <div class="row mb-3">
+            <div class="col-md-4! ms-auto">
+                <form asp-action="Index" method="get">
+                    <select name="department" class="form-select" onchange="this.form.submit()">
+                        <option value="">-- Tất cả chuyên môn --</option>
+
+                        @foreach (var dept in ViewBag.Departments)
+                        {
+                            <option value="@dept" selected="@(dept == ViewBag.SelectedDepartment)">
+                                @dept
+                            </option>
+                        }
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+            <tr class="text-center">
+                <th style="width: 5%">ID</th>
+                <th>Giảng viên</th>
+                <th>Email</th>
+                <th>Chuyên môn</th>
+                <th style="width: 20%">Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">#@item.Id</td>
+                    <td>@item.TeacherName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Department</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info me-1">
+                            Edit
+                        </a>
+
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline"
+                            onsubmit="return confirm('Bạn có chắc muốn xóa giảng viên này không?');">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                Delete
+                            </button>
+                        </form>
+
+                        <a asp-controller="Student" asp-action="Index" asp-route-teacherName="@item.TeacherName"
+                            class="btn btn-sm btn-outline-secondary">
+                            View Students
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
