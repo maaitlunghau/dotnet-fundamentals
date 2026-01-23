@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<Student>
 
-@* @{
+@{
     string ToggleDir(string col) =>
-    ViewBag.SortBy == col && ViewBag.SortDir == "asc" ? "desc" : "asc";
+    ViewBag.SortBy == col && ViewBag.SortDir == "asc"
+    ? "desc" : "asc";
 
     string SortIcon(string col) =>
     ViewBag.SortBy == col
     ? (ViewBag.SortDir == "asc" ? "▲" : "▼")
     : "";
-} *@
+}
 
 <div class="container mt-4">
     @if (!string.IsNullOrEmpty(TempData["message"] as string))
@@ -29,6 +30,8 @@
                     + Thêm mới sinh viên
                 </a>
             </div>
+
+            <!-- Filter -->
             <div class="row mb-3">
                 <div class="col-md-4! ms-auto">
                     <form asp-action="Index" method="get">
@@ -52,28 +55,23 @@
                 <thead class="table-dark text-center">
                     <tr>
                         <th style="width: 5%">ID</th>
-                        @* <th>
+                        <th>
                             <a asp-action="Index" asp-route-sortBy="name" asp-route-sortDir="@ToggleDir("name")"
                                 asp-route-teacherName="@ViewBag.SelectedTeacher"
                                 class="text-white text-decoration-none">
                                 Họ tên @SortIcon("name")
                             </a>
-                        </th> *@
-                        <th>
-                            Họ tên
                         </th>
-                        @* <th>
+                        <th>
                             <a asp-action="Index" asp-route-sortBy="dob" asp-route-sortDir="@ToggleDir("dob")"
                                 asp-route-teacherName="@ViewBag.SelectedTeacher"
                                 class="text-white text-decoration-none">
                                 Ngày sinh @SortIcon("dob")
                             </a>
-                        </th> *@
-                        <th>
-                            Ngày sinh
                         </th>
                         <th>Địa chỉ</th>
                         <th>Giáo viên phụ trách</th>
+                        <th style="width: 15%">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +100,18 @@
                                     <span class="badge bg-secondary">
                                         @(item.Teacher?.TeacherName ?? "Chưa phân công")
                                     </span>
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">
+                                        ✏ Edit
+                                    </a>
+
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline"
+                                        onsubmit="return confirm('Bạn có chắc chắn muốn xoá sinh viên này?');">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            🗑 Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         }

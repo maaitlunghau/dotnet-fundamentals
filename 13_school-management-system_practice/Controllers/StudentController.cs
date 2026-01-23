@@ -19,7 +19,11 @@ namespace _13_school_management_system_practice.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index(string? teacherName)
+        public async Task<IActionResult> Index(
+                string? teacherName,
+                string? sortBy,
+                string? sortDir
+        )
         {
             var allStudents = await _studentRepo.GetStudentsAsync();
             var students = allStudents;
@@ -30,6 +34,24 @@ namespace _13_school_management_system_practice.Controllers
                     .Where(stu => stu.Teacher?.TeacherName == teacherName)
                     .ToList();
             }
+
+            sortDir = sortDir == "asc" ? "asc" : "desc";
+
+            students = sortBy switch
+            {
+                "name" => sortDir == "asc"
+                    ? students.OrderBy(stu => stu.StudentName)
+                    : students.OrderByDescending(stu => stu.StudentName),
+
+                "dob" => sortDir == "asc"
+                    ? students.OrderBy(stu => stu?.DateOfBirth)
+                    : students.OrderByDescending(stu => stu.DateOfBirth),
+
+                _ => students.OrderBy(stu => stu.StudentName)
+            };
+
+            ViewBag.SortBy = sortBy;
+            ViewBag.SortDir = sortDir;
 
             ViewBag.Teachers = allStudents
                 .Select(stu => stu.Teacher?.TeacherName)
