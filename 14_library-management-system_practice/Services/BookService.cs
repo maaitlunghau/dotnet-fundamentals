@@ -15,6 +15,11 @@ public class BookService : IBookRepository
         return await _dbContext.Books.ToListAsync();
     }
 
+    public async Task<Book?> GetBookByIdAsync(int? id)
+    {
+        return await _dbContext.Books.FindAsync(id);
+    }
+
     public async Task DeleteBookAsync(int? id)
     {
         var book = await _dbContext.Books.FindAsync(id);
