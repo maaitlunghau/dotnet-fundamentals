@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_school-management-system
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_library-management-system_practice", "14_library-management-system_practice\14_library-management-system_practice.csproj", "{896BA9C7-123B-4F67-9766-2535AAE5EE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_product-management-system_practice", "15_product-management-system_practice\15_product-management-system_practice.csproj", "{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -351,6 +353,18 @@ Global
 		{896BA9C7-123B-4F67-9766-2535AAE5EE9C}.Release|x64.Build.0 = Release|Any CPU
 		{896BA9C7-123B-4F67-9766-2535AAE5EE9C}.Release|x86.ActiveCfg = Release|Any CPU
 		{896BA9C7-123B-4F67-9766-2535AAE5EE9C}.Release|x86.Build.0 = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|x64.Build.0 = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|x64.ActiveCfg = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|x64.Build.0 = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{419F1DF1-E40C-43F8-B9AF-3AF6ED7167BB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
