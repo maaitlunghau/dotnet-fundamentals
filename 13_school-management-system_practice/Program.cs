@@ -12,6 +12,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
 builder.Services.AddScoped<ITeacherRepository, TeacherService>();
+builder.Services.AddScoped<IStudentRepository, StudentService>();
 
 var app = builder.Build();
 
