@@ -1,0 +1,10 @@
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.csproj.AssemblyReference.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.AssemblyInfoInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.AssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.csproj.CoreCompileInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.MvcApplicationPartsAssemblyInfo.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.RazorAssemblyInfo.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.RazorAssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/14_library-management-system_practice/obj/Debug/net10.0/14_library-management-system_practice.sourcelink.json
