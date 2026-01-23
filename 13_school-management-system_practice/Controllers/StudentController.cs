@@ -1,5 +1,6 @@
 using _13_school_management_system_practice.Models;
 using _13_school_management_system_practice.Repositories;
+using _13_school_management_system_practice.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -18,9 +19,25 @@ namespace _13_school_management_system_practice.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? teacherName)
         {
-            var students = await _studentRepo.GetStudentsAsync();
+            var allStudents = await _studentRepo.GetStudentsAsync();
+            var students = allStudents;
+
+            if (!string.IsNullOrEmpty(teacherName))
+            {
+                students = students
+                    .Where(stu => stu.Teacher?.TeacherName == teacherName)
+                    .ToList();
+            }
+
+            ViewBag.Teachers = allStudents
+                .Select(stu => stu.Teacher?.TeacherName)
+                .Distinct()
+                .ToList();
+
+            ViewBag.SelectedTeacher = teacherName;
+
             return View(students);
         }
 
