@@ -51,7 +51,15 @@ namespace _13_school_management_system_practice.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
+            if (id == null) return NotFound();
+
+            var allTeachers = await _repo.GetAllTeachersAsync();
             var teacher = await _repo.GetTeacherByIdAsync(id);
+
+            ViewBag.OtherTeachers = allTeachers
+                .Where(t => t.Id != teacher?.Id)
+                .ToList();
+
             return View(teacher);
         }
 

@@ -1,6 +1,5 @@
 using _13_school_management_system_practice.Models;
 using _13_school_management_system_practice.Repositories;
-using _13_school_management_system_practice.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -94,6 +93,15 @@ namespace _13_school_management_system_practice.Controllers
             TempData["message"] = "Thêm mới sinh viên thành công.";
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeTeacher(int studentId, int newTeacherId)
+        {
+            await _studentRepo.ChangeTeacherAsync(studentId, newTeacherId);
+
+            TempData["message"] = "Đổi giảng viên thành công.";
+            return RedirectToAction("Index", "Teacher");
         }
     }
 }

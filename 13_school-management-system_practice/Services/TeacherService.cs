@@ -18,7 +18,9 @@ public class TeacherService : ITeacherRepository
 
     public async Task<Teacher?> GetTeacherByIdAsync(int? id)
     {
-        return await _dbContext.Teachers.FindAsync(id);
+        return await _dbContext.Teachers
+            .Include(t => t.Students)
+            .FirstOrDefaultAsync(t => t.Id == id);
     }
 
     public async Task CreateNewTeacherAsync(Teacher? t)

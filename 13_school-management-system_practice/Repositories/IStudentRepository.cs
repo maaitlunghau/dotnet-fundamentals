@@ -6,4 +6,5 @@ public interface IStudentRepository
 {
     public Task<IEnumerable<Student>> GetStudentsAsync();
     public Task CreateNewStudentAlongTeacher(Student? stu);
+    public Task ChangeTeacherAsync(int? studentId, int? newTeacherId);
 }

@@ -25,4 +25,24 @@ public class StudentService : IStudentRepository
         await _dbContext.Students.AddAsync(stu);
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task ChangeTeacherAsync(int? studentId, int? newTeacherId)
+    {
+        if (studentId == null || newTeacherId == null)
+            throw new ArgumentNullException("StudentId hoặc NewTeacherId không được null");
+
+        var student = await _dbContext.Students
+            .FirstOrDefaultAsync(s => s.Id == studentId);
+        if (student == null)
+            throw new Exception("Không tìm thấy sinh viên");
+
+        var teacherExists = await _dbContext.Teachers
+            .AnyAsync(t => t.Id == newTeacherId);
+        if (!teacherExists)
+            throw new Exception("Giảng viên mới không tồn tại");
+
+        student.TeacherId = newTeacherId.Value;
+
+        await _dbContext.SaveChangesAsync();
+    }
 }
