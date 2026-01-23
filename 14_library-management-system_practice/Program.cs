@@ -1,4 +1,6 @@
 using _14_library_management_system_practice.Models;
+using _14_library_management_system_practice.Repositories;
+using _14_library_management_system_practice.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDB"));
 });
+builder.Services.AddScoped<IBookRepository, BookService>();
 
 var app = builder.Build();
 
