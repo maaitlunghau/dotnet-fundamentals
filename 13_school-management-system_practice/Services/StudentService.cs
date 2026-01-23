@@ -12,7 +12,9 @@ public class StudentService : IStudentRepository
 
     public async Task<IEnumerable<Student>> GetStudentsAsync()
     {
-        return await _dbContext.Students.ToListAsync();
+        return await _dbContext.Students
+            .Include(stu => stu.Teacher!)
+            .ToListAsync();
     }
 
     public async Task CreateNewStudentAlongTeacher(Student? stu)

@@ -1,6 +1,7 @@
 using _13_school_management_system_practice.Models;
 using _13_school_management_system_practice.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace _13_school_management_system_practice.Controllers
 {
@@ -26,24 +27,34 @@ namespace _13_school_management_system_practice.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var allTeachers = await _teacherRepo.GetAllTeachersAsync();
-            var teachers = allTeachers;
+            var teachers = await _teacherRepo.GetAllTeachersAsync();
 
             ViewBag.Teachers = teachers
-                .Select(t => t.TeacherName)
-                .Distinct()
+                .Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = t.TeacherName
+                })
                 .ToList();
 
-            return View(teachers);
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Student? stu)
+        public async Task<IActionResult> Create(Student stu)
         {
-            if (ModelState.IsValid == false) return View();
+            if (!ModelState.IsValid)
+            {
+                var teachers = await _teacherRepo.GetAllTeachersAsync();
+                ViewBag.Teachers = new SelectList(teachers, "Id", "TeacherName");
+
+                return View(stu);
+            }
 
             await _studentRepo.CreateNewStudentAlongTeacher(stu);
-            return RedirectToAction(nameof(View));
+            TempData["message"] = "Thêm mới sinh viên thành công.";
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

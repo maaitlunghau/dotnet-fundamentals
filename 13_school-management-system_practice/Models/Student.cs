@@ -26,7 +26,7 @@ public class Student
 
     [Required(ErrorMessage = "Vui lòng chọn giáo viên phụ trách cho sinh viên.")]
     [ForeignKey("Teacher")]
-    public int TeacherId { get; set; }
+    public int? TeacherId { get; set; }
 
     public Teacher? Teacher { get; set; }
 }
