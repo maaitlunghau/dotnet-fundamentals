@@ -16,5 +16,9 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Attribute/" />
+  </ItemGroup>
   
 </Project>
