@@ -20,9 +20,43 @@ namespace _15_product_management_system_practice.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(
+            string? search,
+            string? sortBy,
+            string? sortDir
+        )
         {
-            var products = await _repo.GetAllProductsAsync();
+            var allProducts = await _repo.GetAllProductsAsync();
+            var products = allProducts;
+
+            // filter 
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                products = products
+                    .Where(prod => prod!.ProductName!.ToLower().Contains(search.ToLower()))
+                    .OrderBy(prod => prod.ProductName)
+                    .ToList();
+            }
+
+            // sort
+            sortDir = sortDir == "asc" ? "asc" : "desc";
+
+            products = sortBy switch
+            {
+                "name" => sortDir == "asc" ?
+                    products.OrderBy(p => p.ProductName)
+                    : products.OrderByDescending(p => p.ProductName),
+
+                "price" => sortDir == "asc" ?
+                    products.OrderBy(p => p.Price)
+                    : products.OrderByDescending(p => p.Price),
+
+                _ => products.OrderBy(p => p.ProductName)
+            };
+
+            ViewBag.sortBy = sortBy;
+            ViewBag.sortDir = sortDir;
+
             return View(products);
         }
 
@@ -40,7 +74,7 @@ namespace _15_product_management_system_practice.Controllers
                 ModelState.AddModelError("ImageHandling", "Vui lòng gửi ảnh.");
 
             string fileName = Guid.NewGuid() + "-" + pro?.ImageHandling?.FileName;
-            pro?.Image = "/images/" + fileName;
+            pro?.Image = "/images/products/" + fileName;
 
             string folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "images/products");
             if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);

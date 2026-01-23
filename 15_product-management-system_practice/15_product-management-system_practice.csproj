@@ -20,6 +20,8 @@
   <ItemGroup>
     <Folder Include="Repository/" />
     <Folder Include="Service/" />
+    <Folder Include="Views/Product/" />
+    <Folder Include="wwwroot/images/products/" />
   </ItemGroup>
 
 </Project>
