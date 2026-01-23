@@ -21,6 +21,7 @@
     <Folder Include="Attribute/" />
     <Folder Include="Repositories/" />
     <Folder Include="Services/" />
+    <Folder Include="Views/Student/" />
     <Folder Include="Views/Teacher/" />
   </ItemGroup>
   

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Student>
+
+@* @{
+    string ToggleDir(string col) =>
+    ViewBag.SortBy == col && ViewBag.SortDir == "asc" ? "desc" : "asc";
+
+    string SortIcon(string col) =>
+    ViewBag.SortBy == col
+    ? (ViewBag.SortDir == "asc" ? "▲" : "▼")
+    : "";
+} *@
+
+<div class="container mt-4">
+    @if (!string.IsNullOrEmpty(TempData["message"] as string))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header p-4 d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3 mb-3 align-items-center">
+                <h4 class="mb-0">
+                    Danh sách sinh viên
+                </h4>
+                <a asp-action="Create" class="btn btn-success">
+                    + Thêm mới sinh viên
+                </a>
+            </div>
+
+            <!-- Filter -->
+            @* <div class="row mb-3">
+                <div class="col-md-4! ms-auto">
+                    <form asp-action="Index" method="get">
+                        <select name="teacherName" class="form-select" onchange="this.form.submit()">
+                            <option value="">-- Tất cả giảng viên --</option>
+
+                            @foreach (var teacher in ViewBag.Teachers)
+                            {
+                                <option value="@teacher" selected="@(teacher == ViewBag.SelectedTeacher)">
+                                    @teacher
+                                </option>
+                            }
+                        </select>
+                    </form>
+                </div>
+            </div> *@
+        </div>
+
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover text-center mb-0 align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th style="width: 5%">ID</th>
+                        @* <th>
+                            <a asp-action="Index" asp-route-sortBy="name" asp-route-sortDir="@ToggleDir("name")"
+                                asp-route-teacherName="@ViewBag.SelectedTeacher"
+                                class="text-white text-decoration-none">
+                                Họ tên @SortIcon("name")
+                            </a>
+                        </th> *@
+                        <th>
+                            Họ tên
+                        </th>
+                        @* <th>
+                            <a asp-action="Index" asp-route-sortBy="dob" asp-route-sortDir="@ToggleDir("dob")"
+                                asp-route-teacherName="@ViewBag.SelectedTeacher"
+                                class="text-white text-decoration-none">
+                                Ngày sinh @SortIcon("dob")
+                            </a>
+                        </th> *@
+                        <th>
+                            Ngày sinh
+                        </th>
+                        <th>Địa chỉ</th>
+                        <th>Giáo viên phụ trách</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-4">
+                                Không có sinh viên nào
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center fw-bold">
+                                    #@item.Id
+                                </td>
+                                <td>@item.StudentName</td>
+                                <td class="text-center">
+                                    @item.DateOfBirth!.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>@item.Address</td>
+                                <td>
+                                    <span class="badge bg-secondary">
+                                        @(item.Teacher?.TeacherName ?? "Chưa phân công")
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
