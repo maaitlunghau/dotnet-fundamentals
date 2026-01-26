@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19_CQRS", "19_CQRS\19_CQRS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20_social-posts-mvc", "20_social-posts-mvc\20_social-posts-mvc.csproj", "{3EDA2E6A-4C0B-491B-867B-0242D3D2AB47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21_web-api_demo", "21_web-api_demo\21_web-api_demo.csproj", "{6FC4D438-D3D2-4097-B15F-5148E20D5274}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -435,6 +437,18 @@ Global
 		{3EDA2E6A-4C0B-491B-867B-0242D3D2AB47}.Release|x64.Build.0 = Release|Any CPU
 		{3EDA2E6A-4C0B-491B-867B-0242D3D2AB47}.Release|x86.ActiveCfg = Release|Any CPU
 		{3EDA2E6A-4C0B-491B-867B-0242D3D2AB47}.Release|x86.Build.0 = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|x64.Build.0 = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Debug|x86.Build.0 = Debug|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|x64.ActiveCfg = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|x64.Build.0 = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|x86.ActiveCfg = Release|Any CPU
+		{6FC4D438-D3D2-4097-B15F-5148E20D5274}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
