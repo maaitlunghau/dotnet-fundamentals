@@ -1,0 +1,51 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = _22_web_api_advanced
+build_property.RootNamespace = _22_web_api_advanced
+build_property.ProjectDir = /Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL0hvbWUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL0hvbWUvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL1NoYXJlZC9FcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL1NoYXJlZC9fVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL19WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL19WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/frontend-mvc/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = ZnJvbnRlbmQtbXZjL1ZpZXdzL1NoYXJlZC9fTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-ssgek5tav4

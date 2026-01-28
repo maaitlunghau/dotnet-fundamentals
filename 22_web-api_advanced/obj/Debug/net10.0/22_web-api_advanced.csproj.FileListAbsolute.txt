@@ -1,0 +1,11 @@
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.csproj.AssemblyReference.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.AssemblyInfoInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.AssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.csproj.CoreCompileInputs.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.MvcApplicationPartsAssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.MvcApplicationPartsAssemblyInfo.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.RazorAssemblyInfo.cache
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.RazorAssemblyInfo.cs
+/Users/maaitlunghau/Documents/SelfStudy/dotnet-fundamentals/22_web-api_advanced/obj/Debug/net10.0/22_web-api_advanced.sourcelink.json
